@@ -25,7 +25,8 @@ Thumbs.db
 /nbproject
 
 # Crimson Editor project file
-.*.prj
+*.prj
+
 /db
 /bitbucket.org
 
