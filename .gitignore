@@ -1,0 +1,51 @@
+# User specific & automatically generated files #
+#################################################
+/app/Config/database.php
+/app/tmp
+/lib/Cake/Console/Templates/skel/tmp/
+/plugins
+/vendors
+/build
+/dist
+/tags
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+
+# Netbeans Project Files
+/nbproject
+
+# Crimson Editor project file
+.*.prj
+/db
+/bitbucket.org
+
+
+# Ignore bundler config.
+/.bundle
+
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Smarty
+/templates_c
+/cache
+
+
+
