@@ -1,0 +1,30 @@
+/*
+filename: siteLayout.css
+
+site wide CSS configuration
+
+ */
+ 
+#header 
+{
+
+		color:blue;
+		border-bottom:solid 2px black;
+		min-height:50px;
+		
+} 
+
+#main_container 
+{
+
+		color:red;
+}
+
+#footer 
+{
+
+		color:green;
+		border-top:solid 2px black;	
+		min-height:50px;
+		
+}

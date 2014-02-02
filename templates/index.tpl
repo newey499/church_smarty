@@ -1,5 +1,7 @@
 {* Smarty *}
 
+{include 'header.tpl' nocache}
+
 <h1>It works!</h1>
 
 <h1>smarty virtual host</h1>
@@ -15,3 +17,4 @@ Hello {$name}, welcome to Smarty!
 </p>
 
 
+{include 'footer.tpl' nocache}
