@@ -3,9 +3,32 @@ filename: site.css
 
 site wide CSS configuration
 
+Appearance of site only.
+
  */
 
-#main_container {
+ 
+#header 
+{
+
+		color:blue;
+		border-bottom:solid 2px black;		
+		
+} 
+ 
+ 
+#main_container 
+{
 
 		color:red;
+		
+}
+
+
+#footer 
+{
+
+		color:green;
+		border-top:solid 2px black;			
+		
 }

@@ -2,6 +2,10 @@
 
 {include 'header.tpl' nocache}
 
+<div id="body">
+
+body
+
 <h1>It works!</h1>
 
 <h1>smarty virtual host</h1>
@@ -16,5 +20,6 @@ App Name [{$app_name}]
 Hello {$name}, welcome to Smarty!
 </p>
 
+</div> <!-- end of div id="body" -->
 
 {include 'footer.tpl' nocache}

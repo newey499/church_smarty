@@ -3,28 +3,33 @@ filename: siteLayout.css
 
 site wide CSS configuration
 
+Layout of site only.
+
  */
  
 #header 
 {
 
-		color:blue;
-		border-bottom:solid 2px black;
-		min-height:50px;
+	min-height:50px;
 		
 } 
 
 #main_container 
 {
 
-		color:red;
+
+}
+
+#body
+{
+
+	min-height:400px;
+
 }
 
 #footer 
 {
 
-		color:green;
-		border-top:solid 2px black;	
-		min-height:50px;
+	min-height:50px;
 		
 }
