@@ -1,9 +1,7 @@
 {* Smarty *}
 
 {include 'header.tpl' nocache}
-
-<div id="body">
-
+{include 'bodyStart.tpl' nocache}
 body
 
 <h1>It works!</h1>
@@ -20,6 +18,6 @@ App Name [{$app_name}]
 Hello {$name}, welcome to Smarty!
 </p>
 
-</div> <!-- end of div id="body" -->
 
+{include 'bodyEnd.tpl' nocache}
 {include 'footer.tpl' nocache}
