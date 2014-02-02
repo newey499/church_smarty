@@ -13,8 +13,6 @@ $smarty->assign('name','Chris');
 
 require_once('includes/header.php');
 
-
-
 print("========= Start Smarty generated content =========");
 	$smarty->display('index.tpl');
 print("\n========= End Smarty generated content   =========<br>\n");
