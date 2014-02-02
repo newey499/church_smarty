@@ -3,6 +3,9 @@
 error_reporting(E_ALL);
 
 require_once('php/class.SmartyExtended.php');
+require_once('php/class.MysqliExtended.php');
+
+$mysqli = new MysqliExtended();
 
 $smarty = new SmartyExtended();
 
