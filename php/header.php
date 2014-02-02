@@ -3,7 +3,7 @@
 
 <head>
 
-	<title>Smarty Website</title>
+	<title>Church Smarty Website</title>
 
   <script src="chrome-search://local-ntp/local-ntp.js"></script>
   
