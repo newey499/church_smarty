@@ -14,7 +14,7 @@ require_once('c:/utils/php/smarty-3.1.16/libs/Smarty.class.php');
 
 class SmartyExtended extends Smarty {
 
-	 const APP_NAME = 'Smarty';
+	 const APPLICATION_NAME = 'Smarty';
 	 
    function __construct()
    {
@@ -31,7 +31,8 @@ class SmartyExtended extends Smarty {
         $this->setCacheDir('./cache/');
 
         $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
-        $this->assign('app_name', self::APP_NAME);
+
+        $this->assign('app_name', self::APPLICATION_NAME);
    }
    
    
@@ -42,7 +43,7 @@ class SmartyExtended extends Smarty {
 	   parent::__destruct();
    }
    
-
+	
 }
 
 ?>

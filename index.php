@@ -9,7 +9,10 @@ $mysqli = new MysqliExtended();
 
 $smarty = new SmartyExtended();
 
-$smarty->assign('name','Chris');
+$smarty->clearCache('index.tpl');
+
+$smarty->assign('app_name', "church_smarty");
+$smarty->assign('name', "<H1>Chris</H1>");
 
 //** un-comment the following line to show the debug console
 //$smarty->debugging = true;
