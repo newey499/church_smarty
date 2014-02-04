@@ -1,0 +1,39 @@
+/*
+filename: siteDetail.css
+
+site wide CSS detail configuration
+
+
+ */
+ 
+ 
+#christchurchtitle
+{
+  font-weight: bold;
+	/* font-size:30px; */
+	font-size:2em;
+}
+
+#christchurchaddress
+{
+  font-weight: bold;
+	/* font-size:15px; */
+	font-size:1.2em
+}
+
+/***
+Anchors CSS
+**************/
+a
+{
+	FONT-WEIGHT: bold;
+	color: #3675A3;
+	/* COLOR: orange; */
+	TEXT-DECORATION: none;
+}
+
+a:hover
+{
+	color: orange;	/* mouse over a link turns it to orange */
+}
+

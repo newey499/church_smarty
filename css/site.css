@@ -6,13 +6,23 @@ site wide CSS configuration
 Appearance of site only.
 
  */
+ 
+body
+{
+	
+	line-height: 1.3em;
+	color:blue;
+	background: #deedff;
+	font-size: 0.8em;
+	font-family: Arial, "Times New Roman", Helvetica, sans-serif;
+	
+} 
 
  
 #header 
 {
 
-		color:blue;
-		border-bottom:solid 2px black;		
+	border-bottom:solid 2px black;		
 		
 } 
  
@@ -20,15 +30,13 @@ Appearance of site only.
 #main_container 
 {
 
-		color:red;
-		
 }
 
 
 #footer 
 {
-
-		color:green;
-		border-top:solid 2px black;			
+	
+	text-align:center;
+	border-top:solid 2px black;			
 		
 }
