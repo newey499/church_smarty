@@ -22,7 +22,7 @@ body
 #header 
 {
 
-	border-bottom:solid 2px black;		
+	border-bottom:solid 2px blue;		
 		
 } 
  
@@ -37,6 +37,6 @@ body
 {
 	
 	text-align:center;
-	border-top:solid 2px black;			
+	border-top:solid 2px blue;			
 		
 }
