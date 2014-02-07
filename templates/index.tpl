@@ -52,14 +52,15 @@
 
 <br />
 
-{************************************* 
+
 {foreach $oMenuLeft as $menuGroup}
 
 	<span class="menutitle">{$menuGroup->prompt} <br></span>
 	
 	{foreach $menuGroup->aMenuItems as $oMenuItem}
 	
-		{$oMenuItem->menuitemlink}	
+		{* $oMenuItem->menuitemlink *}	
+		{$oMenuItem->prompt}		
 	
 		{if $oMenuItem->lastupdatedays <= #daysToBeConsideredNew#}	
 			<span id="new">&nbsp; New</span>
@@ -73,7 +74,7 @@
 		
 {/foreach}
 
-************************************}
+
 
 </div>  <!-- END <div class="innertube"> -->
 </div>  <!-- END <div id="leftcolumn"> -->
@@ -86,8 +87,6 @@
 <div class="innertube">
 
 
-{**********************************
-
 {foreach $oMenuRight as $menuGroup}
 	<span class="menutitle">
 	{$menuGroup->prompt} <br>
@@ -95,7 +94,8 @@
 	
 	{foreach $menuGroup->aMenuItems as $oMenuItem}
 	
-		{$oMenuItem->menuitemlink}		
+		{* $oMenuItem->menuitemlink *}		
+		{$oMenuItem->prompt}
 		
 		{if $oMenuItem->lastupdatedays <= #daysToBeConsideredNew#}
 		
@@ -106,11 +106,12 @@
 		<br>
 		
 	{/foreach}
+	
 	<br>
 		
 {/foreach}
 
-*******************************}
+
 
 </div>  <!-- END <div class="innertube"> -->
 </div>  <!-- END <div id="rightcolumn"> -->

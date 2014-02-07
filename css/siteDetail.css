@@ -74,9 +74,21 @@ img.churchcenterimg
 	background: white;
 }
 
+.menutitle
+{
+	font-weight: bold;
+	font-size: 1.2em;
+}
 
-
-
+.new
+{
+	color: red;
+	font-weight: bold;
+  /* font-size: 12px; */
+  font-size: 0.7em;
+	/* font-style: italic; */
+	font-style: oblique;
+}
 
 
 

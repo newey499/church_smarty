@@ -4,25 +4,32 @@ error_reporting(E_ALL);
 
 require_once('php/class.SmartyExtended.php');
 require_once('php/class.MysqliExtended.php');
+require_once('php/class.Menu.php');
 
-$mysqli = new MysqliExtended();
+$oMysqli = new MysqliExtended();
 
-$smarty = new SmartyExtended();
+$oSmarty = new SmartyExtended();
 
-$smarty->clearCache('index.tpl');
+$oMenuLeft  = new Menu(Menu::LEFT);
+$oSmarty->assign('oMenuLeft', $oMenuLeft->aMenuGroups);
 
-$smarty->assign('app_name', "church_smarty");
-$smarty->assign('name', "<H1>Chris</H1>");
+$oMenuRight = new Menu(Menu::RIGHT);
+$oSmarty->assign('oMenuRight', $oMenuRight->aMenuGroups);
 
-$smarty->assign('primaryKeyId', "Not Set");
+$oSmarty->clearCache('index.tpl');
+
+$oSmarty->assign('app_name', "church_smarty");
+$oSmarty->assign('name', "<H1>Chris</H1>");
+
+$oSmarty->assign('primaryKeyId', "Not Set");
 
 //** un-comment the following line to show the debug console
-//$smarty->debugging = true;
+//$oSmarty->debugging = true;
 
 require_once('php/header.php');
 
 // ========= Start Smarty generated content =========
-	$smarty->display('index.tpl');
+	$oSmarty->display('index.tpl');
 // ========= End Smarty generated content   =========
 
 require_once('php/footer.php');
