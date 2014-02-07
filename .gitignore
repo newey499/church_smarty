@@ -26,6 +26,8 @@ Thumbs.db
 
 # Crimson Editor project file
 *.prj
+# Crimson Editor project file
+*.bak
 
 /db
 /bitbucket.org
@@ -47,6 +49,14 @@ Thumbs.db
 # Smarty
 /templates_c
 /cache
+
+
+# Ignore images
+*.jpg
+*.gif
+*.png
+
+
 
 
 

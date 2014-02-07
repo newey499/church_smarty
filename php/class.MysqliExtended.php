@@ -5,7 +5,7 @@ file: class.Mysqli.Extended.php
 
 
 ************************************/
-require_once('configs/configDb.php');
+require_once('config/configDb.php');
 
 class MysqliExtended extends mysqli 
 {

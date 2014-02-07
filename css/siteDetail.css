@@ -37,3 +37,52 @@ a:hover
 	color: orange;	/* mouse over a link turns it to orange */
 }
 
+
+
+/* Used for church image - top of left hand column */
+img.churchtopleft
+{/* scalable em size class 468px/60px banners */
+
+	width: 98%;  /* forces church image to fill entire width of left column */
+  height: 10em;
+	/* margin-top: 0.5em; */
+	/* margin-left: 0.5em; */
+	/* margin-bottom: 0.5em; */
+	/* margin-right: 0.5em; */
+  border: blue 1px solid;
+  padding: 4px;
+	background: white;
+}
+
+
+/* Class for containg div for below image size */
+.churchcenter
+{ /* scaleable container for above */
+	margin-left:0.5em;
+	margin-bottom:0.5em;
+	float:right;
+}
+
+/* Used for church image at top of center column */
+img.churchcenterimg
+{/* scalable em size class 468px/60px banners */
+	margin-top:0em;
+	width: 16em;
+  height: 10em;
+  border: blue 1px solid;
+  padding: 4px;
+	background: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

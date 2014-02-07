@@ -1,5 +1,8 @@
 {* Smarty *}
 
+{config_load file="config/church_smarty.conf"}
+
+
 {include 'header.tpl' nocache}
 {include 'bodyStart.tpl' nocache}
 
@@ -7,21 +10,24 @@
 <div id="contentcolumn">
 <div class="innertube">
 
-<h4>Centre Column</h4>
+<div class="menutop">
+<a href="index.php" class="menuitem" >Home</a>
+</div>
 
-<h1>It works!</h1>
+<div class="churchcenter" >
 
-<h1>church_smarty virtual host</h1>
+<img	class="churchcenterimg" src="images/site/churchfrontwarmem.jpg"
+            alt="Picture of Christ Church - Click for full size picture"
+			onclick="location.href='images/site/churchfrontwarmem.jpg'"
+			onmouseover="this.style.cursor='pointer'"
+			title="Picture of Christ Church - Click for full size picture" />
 
-<h1>c:\www\church_smarty</h1>
+</div>
 
-<p>
-App Name [{$app_name}]
-</p>
+<br>
+<br>
 
-<p>
-Hello {$name}, welcome to Smarty!
-</p>
+
 
 </div>  <!-- END <div class="innertube"> -->
 </div>  <!-- END <div class="contentcolumn"> -->
@@ -32,7 +38,42 @@ Hello {$name}, welcome to Smarty!
 <div id="leftcolumn">
 <div class="innertube">
 
-<h4>Left Column</h4>
+<div>
+
+<h4>PrimaryKeyId [{$primaryKeyId}]</h4>
+
+<img	class="churchtopleft" src="images/site/church003small.jpg"
+            alt="Picture of Christ Church - Click for full size picture"
+			onclick="location.href='images/orig/church003.jpg'"
+			onmouseover="this.style.cursor='pointer'"
+			title="Picture of Christ Church - Click for full size picture" />
+
+</div>
+
+<br />
+
+{************************************* 
+{foreach $oMenuLeft as $menuGroup}
+
+	<span class="menutitle">{$menuGroup->prompt} <br></span>
+	
+	{foreach $menuGroup->aMenuItems as $oMenuItem}
+	
+		{$oMenuItem->menuitemlink}	
+	
+		{if $oMenuItem->lastupdatedays <= #daysToBeConsideredNew#}	
+			<span id="new">&nbsp; New</span>
+		{/if}
+		
+		<br>
+		
+	{/foreach}
+	
+	<br>
+		
+{/foreach}
+
+************************************}
 
 </div>  <!-- END <div class="innertube"> -->
 </div>  <!-- END <div id="leftcolumn"> -->
@@ -44,7 +85,32 @@ Hello {$name}, welcome to Smarty!
 <div id="rightcolumn">
 <div class="innertube">
 
-<h4>Right Column</h4>
+
+{**********************************
+
+{foreach $oMenuRight as $menuGroup}
+	<span class="menutitle">
+	{$menuGroup->prompt} <br>
+	</span>
+	
+	{foreach $menuGroup->aMenuItems as $oMenuItem}
+	
+		{$oMenuItem->menuitemlink}		
+		
+		{if $oMenuItem->lastupdatedays <= #daysToBeConsideredNew#}
+		
+			<span id="new">&nbsp; New</span>
+			
+		{/if}
+		
+		<br>
+		
+	{/foreach}
+	<br>
+		
+{/foreach}
+
+*******************************}
 
 </div>  <!-- END <div class="innertube"> -->
 </div>  <!-- END <div id="rightcolumn"> -->
