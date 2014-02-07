@@ -62,13 +62,26 @@ class MenuItem extends MenuBase
 {
 
 	public $lastupdatedays;
+	public $menuitemlink;
 	
 	function __construct($row = NULL) 
 	{
 		parent::__construct();
 		
 		$this->loadRow($row);	
-		$this->lastupdatedays = 14;
+		$this->calcLastUpdatedDays();
+
+		$this->menuitemlink = "menuitemlink var not set";
+	}
+	
+	protected function calcLastUpdatedDays()
+	{
+		$dateNow = new DateTime();
+		$dateUpdated = new DateTime($this->lastupdate);
+		$interval = $dateNow->diff($dateUpdated);
+		
+		$this->lastupdatedays = $interval->days;
+		print("[" . $this->prompt .  "] lastupdatedays [" . $this->lastupdatedays . "]<br>\n");
 	}
 	
 }
