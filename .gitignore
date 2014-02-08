@@ -51,6 +51,7 @@ Thumbs.db
 
 # Smarty
 /templates_c/*
+/admin/templates_c/*
 /cache/*
 
 
