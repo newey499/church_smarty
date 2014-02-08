@@ -29,6 +29,9 @@ Thumbs.db
 # Crimson Editor project file
 *.bak
 
+# linux editor backup files - Eg. gedit
+*~
+
 /db
 /bitbucket.org
 
@@ -47,8 +50,8 @@ Thumbs.db
 /tmp
 
 # Smarty
-/templates_c
-/cache
+/templates_c/*
+/cache/*
 
 
 # Ignore images
