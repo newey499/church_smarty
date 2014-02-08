@@ -90,10 +90,41 @@ img.churchcenterimg
 	font-style: oblique;
 }
 
+#surroundbox
+{
+	text-align: center;
+	margin:4px;
+	float:right; 
+	width:100px; 
+	color:red;
+	border:1px solid red;
+}
+
+#leftcolumn
+{
+	font-size: 0.9em;
+}
+
+#rightcolumn
+{
+	font-size: 0.9em;
+}
 
 
+/* used by tooltip javascript for mission statement on home page */
+#missionstatement
+{
+	margin-left:10em;
+	text-align:center;
+	width:50%;
+}
 
-
+/* changes the line height for the "Welcome to a Thriving Evangelical Anglican Church" */
+/* text in home.php */
+.hometitle
+{
+	line-height: 1.1em;
+}
 
 
 

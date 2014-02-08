@@ -5,18 +5,15 @@
 <!--                          Start Footer Content Section                      -->
 <!-- ========================================================================== -->
 
-<div style="float:right; width:120px;" >
-	<div style="color:red;">
+<div id="surroundbox">
 		<b>
-		<!-- ----------------------
-		<?php
-			print "Last Updated <br />\n";
-			print getLastUpdateTimestamp();
-		?>
-		--------------------------- -->
+
+		Last Updated
+		<br>
+		{$lastUpdatedDateTime}
+
 		</b>
-	</div>
-</div>
+</div>   <!-- class="surroundbox -->
 
 
 {* use the date_format modifier to show current date and time *}
@@ -54,4 +51,4 @@ Christ Church Lye &amp; Stambermill Parochial Church Council
 <!-- ========================================================================== -->
 </div> <!-- end div id="footer"> -->
 
-{include file='footerWrapper.tpl'}
+{* {include file='footerWrapper.tpl'} *}

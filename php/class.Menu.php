@@ -170,6 +170,35 @@ class Menu extends MenuBase
 		parent::__destruct();
 	}
 	
+	
+	public static function getMenuItemContent($id)
+	{
+		$oMysqli = MysqliExtended::getInstance();
+		$content = "<h4>content not found for id [$id]</h4>";
+		
+		$qry = "SELECT content from menus WHERE id = " . $id;
+		
+		$res = FALSE;
+		$res = $oMysqli->query($qry);
+		if (! $res)
+		{
+			throw new MenuException("SQL Query failed [$qry] ");
+		}
+		
+		$row = FALSE;
+		if ($row = $res->fetch_assoc())
+		{
+			$content = $row['content'];
+		}
+		
+		// Free resultset
+		$res->free_result();		
+		
+		//print("<h4>content [$content]</h4>");
+		
+		return $content;
+	}
+	
 	protected function loadMenuGroups($menuSide)
 	{
 		$qry = " SELECT " . Menu::SELECT_COLUMNS .

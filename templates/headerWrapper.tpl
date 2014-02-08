@@ -17,7 +17,7 @@
   <script type="text/javascript" src="jscript/church.js" ></script>
   <script type="text/javascript" src="jscript/slideshow.js" ></script>
   <script type="text/javascript" src="jscript/tooltip.js" ></script>
-  <script type="text/javascript" src="jscript/socialmedia.js" ></script>
+  <!-- <script type="text/javascript" src="jscript/socialmedia.js" ></script> -->
   
   <link rel="stylesheet" href="css/siteLayout.css"></link>
   <link rel="stylesheet" href="css/site.css"></link>

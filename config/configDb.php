@@ -18,7 +18,7 @@ class ConfigDb
 	const HOST = '127.0.0.1';
 	const USER = 'bobiles_church';
 	const PASS = 'charlton';
-	const DB   = 'bobiles_church';		
+	const DB   = 'bobiles_church_smarty';		
 	
 }
 

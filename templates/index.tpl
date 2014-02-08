@@ -26,6 +26,8 @@
 <br>
 
 
+{$centreColumnContent}
+
 
 </div>  <!-- END <div class="innertube"> -->
 </div>  <!-- END <div class="contentcolumn"> -->

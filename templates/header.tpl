@@ -1,5 +1,5 @@
 {* Smarty *}
-{include file='headerWrapper.tpl'}
+{* {include file='headerWrapper.tpl'} *}
 
 <div id="header">
 <!-- START TOP BANNER -->
