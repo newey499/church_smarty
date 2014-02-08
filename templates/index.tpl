@@ -1,10 +1,8 @@
 {* Smarty *}
-
-{config_load file="config/church_smarty.conf"}
-
-
 {include 'header.tpl' nocache}
 {include 'bodyStart.tpl' nocache}
+
+{config_load file="config/church_smarty.conf"}
 
 <div id="contentwrapper">
 <div id="contentcolumn">
@@ -59,8 +57,9 @@
 	
 	{foreach $menuGroup->aMenuItems as $oMenuItem}
 	
-		{* $oMenuItem->menuitemlink *}	
-		{$oMenuItem->prompt}		
+		{* $oMenuItem->prompt *}	
+
+		{$oMenuItem->menuitemlink}		
 	
 		{if $oMenuItem->lastupdatedays <= #daysToBeConsideredNew#}	
 			<span id="new">&nbsp; New</span>
@@ -94,8 +93,9 @@
 	
 	{foreach $menuGroup->aMenuItems as $oMenuItem}
 	
-		{* $oMenuItem->menuitemlink *}		
-		{$oMenuItem->prompt}
+		{* $oMenuItem->prompt *}
+
+		{$oMenuItem->menuitemlink}	
 		
 		{if $oMenuItem->lastupdatedays <= #daysToBeConsideredNew#}
 		

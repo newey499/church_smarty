@@ -34,12 +34,13 @@ class MenuBase
 	
 	function __construct() 
 	{
-		$this->oMysqli = new  MysqliExtended();
+		//$this->oMysqli = new  MysqliExtended();
+		$this->oMysqli = MysqliExtended::getInstance();
 	}
 	
 	function __destruct() 
 	{
-		$this->oMysqli->close();
+		//$this->oMysqli->close();
 	}
 	
 	protected function loadRow(array $row) 
@@ -70,8 +71,7 @@ class MenuItem extends MenuBase
 		
 		$this->loadRow($row);	
 		$this->calcLastUpdatedDays();
-
-		$this->menuitemlink = "menuitemlink var not set";
+		$this->createLink();		
 	}
 	
 	protected function calcLastUpdatedDays()
@@ -79,9 +79,25 @@ class MenuItem extends MenuBase
 		$dateNow = new DateTime();
 		$dateUpdated = new DateTime($this->lastupdate);
 		$interval = $dateNow->diff($dateUpdated);
+
+		$this->lastupdatedays = $interval->days;		
+	}
+	
+	protected function createLink()
+	{
+		$result = "menuitemlink var not set";
+		if (! empty(trim($this->target)))
+		{
+			$result = "<a href='" . $this->target . "'>" . $this->prompt . "</a>";
+		}
+		else 
+		{
+			$result = "<a href='index.php?id=" . $this->id . "'>" . $this->prompt . "</a>";
+		}			
 		
-		$this->lastupdatedays = $interval->days;
-		print("[" . $this->prompt .  "] lastupdatedays [" . $this->lastupdatedays . "]<br>\n");
+		//print("$result<br>");
+
+		$this->menuitemlink = $result;
 	}
 	
 }

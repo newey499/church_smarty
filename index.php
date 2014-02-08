@@ -6,7 +6,7 @@ require_once('php/class.SmartyExtended.php');
 require_once('php/class.MysqliExtended.php');
 require_once('php/class.Menu.php');
 
-$oMysqli = new MysqliExtended();
+$oMysqli = MysqliExtended::getInstance();
 
 $oSmarty = new SmartyExtended();
 
@@ -26,12 +26,12 @@ $oSmarty->assign('primaryKeyId', "Not Set");
 //** un-comment the following line to show the debug console
 //$oSmarty->debugging = true;
 
-require_once('php/header.php');
+//require_once('php/header.php');
 
 // ========= Start Smarty generated content =========
-	$oSmarty->display('index.tpl');
+$oSmarty->display('index.tpl');
 // ========= End Smarty generated content   =========
 
-require_once('php/footer.php');
+//require_once('php/footer.php');
 
 ?>

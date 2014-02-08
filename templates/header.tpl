@@ -1,4 +1,5 @@
 {* Smarty *}
+{include file='headerWrapper.tpl'}
 
 <div id="header">
 <!-- START TOP BANNER -->
@@ -26,3 +27,4 @@
 
 
 </div> <!-- end div id="header"> -->
+
