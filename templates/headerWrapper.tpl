@@ -22,7 +22,8 @@
   <link rel="stylesheet" href="css/siteLayout.css"></link>
   <link rel="stylesheet" href="css/site.css"></link>
   <link rel="stylesheet" href="css/siteDetail.css"></link>  
-  
+  <link rel="stylesheet" href="css/tooltip.css"></link>  
+	
 </head>
 
 <body>

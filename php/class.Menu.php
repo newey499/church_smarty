@@ -163,6 +163,9 @@ class Menu extends MenuBase
 		}
 
 		$this->loadMenuGroups($menuSide);
+		
+		//var_dump($this);	
+		
 	}
 	
 	function __destruct()

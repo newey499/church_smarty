@@ -51,4 +51,4 @@ Christ Church Lye &amp; Stambermill Parochial Church Council
 <!-- ========================================================================== -->
 </div> <!-- end div id="footer"> -->
 
-{* {include file='footerWrapper.tpl'} *}
+{include file='footerWrapper.tpl'}

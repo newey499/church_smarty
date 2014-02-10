@@ -10,12 +10,16 @@ require_once('php/genlib.php');
 $oMysqli = MysqliExtended::getInstance();
 
 $oSmarty = new SmartyExtended();
+//** un-comment the following line to show the debug console
+//$oSmarty->debugging = true;
+// add directories where plugins are stored
+$oSmarty->setPluginsDir('./church_smarty_plugins');
 
-$oMenuLeft  = new Menu(Menu::LEFT);
-$oSmarty->assign('oMenuLeft', $oMenuLeft->aMenuGroups);
+//$oMenuLeft  = new Menu(Menu::LEFT);
+//$oSmarty->assign('oMenuLeft', $oMenuLeft->aMenuGroups);
 
-$oMenuRight = new Menu(Menu::RIGHT);
-$oSmarty->assign('oMenuRight', $oMenuRight->aMenuGroups);
+//$oMenuRight = new Menu(Menu::RIGHT);
+//$oSmarty->assign('oMenuRight', $oMenuRight->aMenuGroups);
 
 $oSmarty->clearCache('index.tpl');
 
@@ -47,15 +51,12 @@ else
 $centreColumnContent = Menu::getMenuItemContent($id);
 $oSmarty->assign('centreColumnContent', $centreColumnContent);
 
-//** un-comment the following line to show the debug console
-//$oSmarty->debugging = true;
-
-require_once('php/header.php');
+//require_once('php/header.php');
 
 // ========= Start Smarty generated content =========
 $oSmarty->display('index.tpl');
 // ========= End Smarty generated content   =========
 
-require_once('php/footer.php');
+//require_once('php/footer.php');
 
 ?>

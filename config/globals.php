@@ -12,7 +12,8 @@ define("FORM_DISPLAY",		4);
 define("FORM_VALIDATE",		5);
 
 
-require_once("dbconnectparms.php");
+require_once("config/configDb.php");
+
 
 define("PATH_TO_PHPMAILER", "/usr/local/apache2/htdocs/phpmailer");
 set_include_path(get_include_path() . 

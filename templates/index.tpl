@@ -1,4 +1,6 @@
 {* Smarty *}
+
+
 {include 'header.tpl' nocache}
 {include 'bodyStart.tpl' nocache}
 
@@ -53,11 +55,16 @@
 <br />
 
 
-{foreach $oMenuLeft as $menuGroup}
+{get_menu menu_side="LEFT" out="oMenuLeft"}
 
-	<span class="menutitle">{$menuGroup->prompt} <br></span>
+{foreach $oMenuLeft->aMenuGroups as $oMenuGroup}
+
+	<span class="menutitle">
+		{$oMenuGroup->prompt}
+		<br>
+	</span>
 	
-	{foreach $menuGroup->aMenuItems as $oMenuItem}
+	{foreach $oMenuGroup->aMenuItems as $oMenuItem}
 	
 		{* $oMenuItem->prompt *}	
 
@@ -71,6 +78,8 @@
 		
 	{/foreach}
 	
+ 
+ 
 	<br>
 		
 {/foreach}
@@ -87,8 +96,9 @@
 <div id="rightcolumn">
 <div class="innertube">
 
+{get_menu menu_side="RIGHT" out="oMenuRight"}
 
-{foreach $oMenuRight as $menuGroup}
+{foreach $oMenuRight->aMenuGroups as $menuGroup}
 	<span class="menutitle">
 	{$menuGroup->prompt} <br>
 	</span>
@@ -122,3 +132,5 @@
 
 {include 'bodyEnd.tpl' nocache}
 {include 'footer.tpl' nocache}
+
+
