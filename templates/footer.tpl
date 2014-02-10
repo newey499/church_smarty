@@ -16,21 +16,15 @@
 </div>   <!-- class="surroundbox -->
 
 
-{* use the date_format modifier to show current date and time *}
-{* {$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'} *}
-Copyright &copy; 2004 - 
-{nocache}
-{$smarty.now|date_format:'%Y'}
-{/nocache}
+{* Display the current year as 4 digits *}
+Copyright &copy; 2004 - {date_now_format format="Y"}
 
 Christ Church Lye &amp; Stambermill Parochial Church Council
 
 <br />
 
 <a href="http://www.charity-commission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1134648&SubsidiaryNumber=0">Registered Charity No. 1134648</a>
-
-
-
+|
 <a href="index.php?displaypage=mailform.php&mailTo=Office@christchurchlye.org.uk" >Church Office</a>
 |
 <a href="index.php?displaypage=mailform.php&mailTo=Simon.Falshaw@christchurchlye.org.uk" >Priest in Charge</a>

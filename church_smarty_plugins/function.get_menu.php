@@ -1,7 +1,7 @@
 <?php
 
 /* 
- * name: function.menu.php
+ * name: function.get_menu.php
  * 
  * Smarty plugin to build left and right side menus
  * 

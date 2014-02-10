@@ -151,6 +151,7 @@ class Menu extends MenuBase
 	const LEFT  = 'LEFT';
 	const RIGHT = 'RIGHT';
 	
+	public $menuSide = "";
 	public $aMenuGroups = [];
 	
 	function __construct($menuSide = '') 
@@ -159,9 +160,12 @@ class Menu extends MenuBase
 		
 		if (!($menuSide == Menu::LEFT || $menuSide == Menu::RIGHT))
 		{
-			throw new MenuException("[$menuSide] is not a valid menu side");
+			throw new MenuException("[$menuSide] is not a valid menu side " . 
+				                      "only [" . Menu::LEFT . "] or [" . 
+				                      Menu::RIGHT . "] are valid");
 		}
 
+		$this->menuSide = $menuSide;
 		$this->loadMenuGroups($menuSide);
 		
 		//var_dump($this);	
