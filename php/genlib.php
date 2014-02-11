@@ -996,4 +996,35 @@ function cleanFileName($fname)
 	return strtolower($fname);
 }
 
+
+
+		/************
+		Ensure $arg is numeric and an integer
+		********************/
+function checkIsInteger($arg)
+{
+	$result = true;
+
+	try 
+	{
+		if (! is_numeric($arg) )
+		{
+			throw new InvalidArgumentException("arg of (" . $arg  . ") is not numeric");
+		}
+		else
+		{
+			if ( (intval($arg) != $arg) || ( ! (strpos($arg, '.') === false) ) )
+			{
+				throw new InvalidArgumentException("arg of (" . $arg  . ") is not an integer");
+			}
+		}		
+	} 
+	catch (InvalidArgumentException $ex) 
+	{
+		$result = false;
+	}
+
+	return $result;
+}
+
 ?>

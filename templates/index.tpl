@@ -1,8 +1,8 @@
 {* Smarty *}
 
 
-{include 'header.tpl' nocache}
-{include 'bodyStart.tpl' nocache}
+{include 'common/header.tpl' nocache}
+{include 'common/bodyStart.tpl' nocache}
 
 {config_load file="config/church_smarty.conf"}
 
@@ -24,12 +24,7 @@
 
 </div>
 
-<br>
-<br>
-
-
-{$centreColumnContent}
-
+{eval var=$centreColumnContent}
 
 </div>  <!-- END <div class="innertube"> -->
 </div>  <!-- END <div class="contentcolumn"> -->
@@ -41,8 +36,6 @@
 <div class="innertube">
 
 <div>
-
-<h4>PrimaryKeyId [{$primaryKeyId}]</h4>
 
 <img	class="churchtopleft" src="images/site/church003small.jpg"
             alt="Picture of Christ Church - Click for full size picture"
@@ -130,7 +123,7 @@
 
 
 
-{include 'bodyEnd.tpl' nocache}
-{include 'footer.tpl' nocache}
+{include 'common/bodyEnd.tpl' nocache}
+{include 'common/footer.tpl' nocache}
 
 

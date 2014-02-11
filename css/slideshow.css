@@ -43,8 +43,9 @@
 	/* border: 0; */
 	/* margin-bottom: 10px; */
 	background-color: white;
-	border: black 0.1em solid;
-	padding: 0.3em;
+  border: blue 1px solid;
+	border-radius:5px;	
+	padding: 4px; 
 }
 
 /* ============================================== */

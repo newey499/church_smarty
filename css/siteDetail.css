@@ -50,6 +50,7 @@ img.churchtopleft
 	/* margin-bottom: 0.5em; */
 	/* margin-right: 0.5em; */
   border: blue 1px solid;
+	border-radius: 5px;
   padding: 4px;
 	background: white;
 }
@@ -70,6 +71,7 @@ img.churchcenterimg
 	width: 16em;
   height: 10em;
   border: blue 1px solid;
+	border-radius:5px;
   padding: 4px;
 	background: white;
 }

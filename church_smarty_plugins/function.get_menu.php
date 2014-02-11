@@ -14,10 +14,7 @@ function smarty_function_get_menu($params, $smarty)
 	// Call example
 	// {get_menu menu_side="LEFT" out="oMenuLeft"}
 	
-	require_once('php/class.SmartyExtended.php');
-	require_once('php/class.MysqliExtended.php');
 	require_once('php/class.Menu.php');
-	require_once('php/genlib.php');	
 	
 	if (empty($params['menu_side'])) 
 	{

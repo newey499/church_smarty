@@ -7,6 +7,9 @@ require_once('php/class.MysqliExtended.php');
 require_once('php/class.Menu.php');
 require_once('php/genlib.php');
 
+// Default menu table primary key for home page
+$id = '1';
+
 $oMysqli = MysqliExtended::getInstance();
 
 $oSmarty = new SmartyExtended();
@@ -27,28 +30,37 @@ $oSmarty->assign('app_name', "church_smarty");
 $oSmarty->assign('name', "<H1>Chris</H1>");
 $oSmarty->assign('lastUpdatedDateTime', getLastUpdateTimestamp());
 
-
 if (isset($_GET['id']))
 {
-	$oSmarty->assign('primaryKeyId', $_GET['id']);	
+	try 
+	{
+
+		/************
+		Ensure $rowid is numeric and an integer
+		********************/
+		if (! checkIsInteger($_GET['id']) )
+		{
+			throw new InvalidArgumentException("id of (" . $_GET['id']  . ") is not a numeric integer");
+		}
+
+		$id = $_GET['id'];	
+	} 
+	catch (InvalidArgumentException $ex) 
+	{
+		// Revert to home page
+		$id = '1';
+		$oSmarty->assign('menusTablePrimaryKeyId', "Invalid argument exception [" . $ex->getMessage() . "] - redirected to Home page");		
+	}
+
 }
 else 
 {
-	$oSmarty->assign('primaryKeyId', "Not Set");
+	$oSmarty->assign('menusTablePrimaryKeyId', "Not Set: default to [1] (Home Page)");
+	// Revert to home page
+	$id = '1';	
 }
 
-
-if (isset($_GET['id']) && is_int((int) $_GET['id']))
-{
-	$id = $_GET['id'];
-}
-else 
-{
-	$id = "1";
-}
-
-print("<h1>id [" . $id . "]</h1>");
-
+$oSmarty->assign('menusTablePrimaryKeyId', $id);	
 $centreColumnContent = Menu::getMenuItemContent($id);
 $oSmarty->assign('centreColumnContent', $centreColumnContent);
 
