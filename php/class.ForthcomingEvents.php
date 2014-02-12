@@ -11,6 +11,7 @@ class ForthcomingEvents
 {
 	public $searchExpr = "";
 	public $aEvents = [];
+	public $qry;
 	
 	function __construct() 
 	{
@@ -28,8 +29,9 @@ class ForthcomingEvents
 
 	protected function getForthcomingEvents()
 	{
-
-		$qry = "SELECT	id,
+		$oMysqli = MysqliExtended::getInstance();
+		
+		$this->qry = "SELECT	id,
 										orgid,
 										DATE_FORMAT(eventdate,'%W %D %M %Y') as displayEventDate,
 										DATE_FORMAT(eventdate,'%W %D %M %Y at %l:%i%p') as displayEventDateTime,
@@ -45,9 +47,9 @@ class ForthcomingEvents
 
 		if (! empty($_POST['forthcomingeventsearch']))
 		{
-			$this->searchExpr = mysql_real_escape_string($_POST['forthcomingeventsearch']);
-			$like = '%' . mysql_real_escape_string($_POST['forthcomingeventsearch']) . '%';
-			$qry .= " WHERE eventname LIKE '" . $like . "'" .
+			$this->searchExpr = $oMysqli->real_escape_string($_POST['forthcomingeventsearch']);
+			$like = '%' . $oMysqli->real_escape_string($_POST['forthcomingeventsearch']) . '%';
+			$this->qry .= " WHERE eventname LIKE '" . $like . "'" .
 							" OR eventdesc LIKE '" . $like . "'" .
 							" OR contribemail LIKE '" . $like . "'" .
 							" OR contactname LIKE '" . $like . "'" .
@@ -59,11 +61,9 @@ class ForthcomingEvents
 
 		}
 
-		$qry .= " ORDER BY eventdate";
+		$this->qry .= " ORDER BY eventdate";
 
-		$oMysqli = MysqliExtended::getInstance();
-
-		$result = $oMysqli->query($qry) or die('Query failed: ' . $oMysqli->error());
+		$result = $oMysqli->query($this->qry) or die('Query failed: ' . $oMysqli->error());
 
 		if ($result->num_rows == 0)
 		{

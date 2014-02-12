@@ -48,6 +48,7 @@ else
 }
 
 print("<h1>id [" . $id . "]</h1>");
+$oSmarty->assign('primary_key_menu_id', $id);
 
 $centreColumnContent = Menu::getMenuItemContent($id);
 $oSmarty->assign('centreColumnContent', $centreColumnContent);
