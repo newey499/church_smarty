@@ -27,7 +27,7 @@ $oSmarty->assign('app_name', "church_smarty");
 $oSmarty->assign('name', "<H1>Chris</H1>");
 $oSmarty->assign('lastUpdatedDateTime', getLastUpdateTimestamp());
 
-
+/**************
 if (isset($_GET['id']))
 {
 	$oSmarty->assign('primaryKeyId', $_GET['id']);	
@@ -36,7 +36,7 @@ else
 {
 	$oSmarty->assign('primaryKeyId', "Not Set");
 }
-
+****************/
 
 if (isset($_GET['id']) && is_int((int) $_GET['id']))
 {
@@ -52,7 +52,7 @@ $oSmarty->assign('primary_key_menu_id', $id);
 
 $centreColumnContent = Menu::getMenuItemContent($id);
 $oSmarty->assign('centreColumnContent', $centreColumnContent);
-
+//$oSmarty->assign('calling_URL', 'index.php?id=' . $id);
 //require_once('php/header.php');
 
 // ========= Start Smarty generated content =========
