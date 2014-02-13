@@ -178,12 +178,14 @@ class Menu extends MenuBase
 	}
 	
 	
+	// Class Function
 	public static function getMenuItemContent($id)
 	{
 		$oMysqli = MysqliExtended::getInstance();
 		$content = "<h4>content not found for id [$id]</h4>";
+		$result  = [];
 		
-		$qry = "SELECT content from menus WHERE id = " . $id;
+		$qry = "SELECT " . Menu::SELECT_COLUMNS . " from menus WHERE id = " . $id;
 		
 		$res = FALSE;
 		$res = $oMysqli->query($qry);
@@ -195,15 +197,15 @@ class Menu extends MenuBase
 		$row = FALSE;
 		if ($row = $res->fetch_assoc())
 		{
-			$content = $row['content'];
+			$result = $row;
 		}
 		
 		// Free resultset
 		$res->free_result();		
 		
-		//print("<h4>content [$content]</h4>");
+		//print("<h4>content [" . $result['content'] . "]</h4>");
 		
-		return $content;
+		return $result;
 	}
 	
 	protected function loadMenuGroups($menuSide)

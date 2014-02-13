@@ -24,7 +24,6 @@ $oSmarty->setPluginsDir('./church_smarty_plugins');
 $oSmarty->clearCache('index.tpl');
 
 $oSmarty->assign('app_name', "church_smarty");
-$oSmarty->assign('name', "<H1>Chris</H1>");
 $oSmarty->assign('lastUpdatedDateTime', getLastUpdateTimestamp());
 
 /**************
@@ -50,8 +49,10 @@ else
 print("<h1>id [" . $id . "]</h1>");
 $oSmarty->assign('primary_key_menu_id', $id);
 
-$centreColumnContent = Menu::getMenuItemContent($id);
-$oSmarty->assign('centreColumnContent', $centreColumnContent);
+$row = Menu::getMenuItemContent($id);
+
+$oSmarty->assign('centreColumnContent', $row['content']);
+$oSmarty->assign('pageTitle', $row['prompt']);
 //$oSmarty->assign('calling_URL', 'index.php?id=' . $id);
 //require_once('php/header.php');
 

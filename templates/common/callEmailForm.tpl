@@ -16,8 +16,10 @@
 
 	<input type="hidden" name="calling_url"
 	value="{$smarty.server.SCRIPT_NAME}?id={$primary_key_menu_id}">
-	<input type="submit" value="Email">
-
+	
+	<input type="hidden" name="calling_page_title"
+	value="{$pageTitle}">
+	
 	<input type="hidden" name="newemail" value = "YES">
 
 	{* blank values for new $_POST variables *}
@@ -26,6 +28,8 @@
 	<input type="hidden" name="emailreplyto2" value = "">
 	<input type="hidden" name="emailtext" value = "">
 
+	<input type="submit" value="Email">		
+	
 	</form>
 
 </p>
