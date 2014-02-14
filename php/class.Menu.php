@@ -17,7 +17,7 @@ class MenuException extends Exception
 class MenuBase
 {
 	const SELECT_COLUMNS = 
-	' id, itemtype, itemgroup, itemorder, isvisible, prompt, target, content, menucol, lastupdate ';
+	' id, itemtype, itemgroup, itemorder, isvisible, prompt, target, content, menucol, lastupdate, smartytemplate ';
 	
 	public $id;
 	public $itemtype;
@@ -29,6 +29,7 @@ class MenuBase
 	public $content;
 	public $menucol;
 	public $lastupdate;
+	public $smartytemplate;
 	
 	public $oMysqli;
 	
@@ -45,16 +46,17 @@ class MenuBase
 	
 	protected function loadRow(array $row) 
 	{
-		$this->id         = $row['id'];
-		$this->itemtype   = $row['itemtype'];
-		$this->itemgroup  = $row['itemgroup'];
-		$this->itemorder  = $row['itemorder'];
-		$this->isvisible  = $row['isvisible'];
-		$this->prompt     = $row['prompt'];
-		$this->target     = $row['target'];
-		$this->content    = $row['content'];
-		$this->menucol    = $row['menucol'];
-		$this->lastupdate = $row['lastupdate'];		
+		$this->id							= $row['id'];
+		$this->itemtype				= $row['itemtype'];
+		$this->itemgroup			= $row['itemgroup'];
+		$this->itemorder			= $row['itemorder'];
+		$this->isvisible			= $row['isvisible'];
+		$this->prompt					= $row['prompt'];
+		$this->target					= $row['target'];
+		$this->content				= $row['content'];
+		$this->menucol				= $row['menucol'];
+		$this->lastupdate		  = $row['lastupdate'];		
+		$this->smartytemplate = $row['smartytemplate'];
 	}
 	
 }

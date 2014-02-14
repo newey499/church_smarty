@@ -51,7 +51,47 @@ $oSmarty->assign('primary_key_menu_id', $id);
 
 $row = Menu::getMenuItemContent($id);
 
-$oSmarty->assign('centreColumnContent', $row['content']);
+/*******************
+ * 
+ * Hierarchy is:
+ *  1) If we get here the the content is not an external website.
+ *	2) If menus.smartytemplate is not empty read the contents of the file 
+ *     and use as content.
+ *  3) If menus.smartytemplate is empty read the contents of the menus.content column 
+ *     and use as content.
+ */
+
+$template_dir = $oSmarty->getTemplateDir();
+var_dump($template_dir);
+
+if (empty($row['smartytemplate']))
+{
+	$oSmarty->assign('centreColumnContent', $row['content']);	
+}
+else 
+{
+	if (isSmartyTemplateFile($row['smartytemplate']))
+	{
+			if (! file_exists($row['smartytemplate']))
+			{
+				$content = "<h4>Smarty template file [" . $row['smartytemplate'] . "] not found.</h4>";	
+			}
+			else 
+			{
+				$content = file_get_contents($row['smartytemplate']);
+				if ($content === false)
+				{
+					$content = "<h4>Smarty template file [" . $row['smartytemplate'] . "] not found.</h4>";		
+				}	
+			}
+			
+			$oSmarty->assign('centreColumnContent', $content);					
+	}
+	
+}
+
+
+
 $oSmarty->assign('pageTitle', $row['prompt']);
 //$oSmarty->assign('calling_URL', 'index.php?id=' . $id);
 //require_once('php/header.php');

@@ -15,6 +15,7 @@ Date   Programmer		Description
 11/05/12 CDN 		Fix bug that that stops blank line between menu groups if first
 					menu group doesn't have a title. Fix is to explicitly set $forceNewLine
 					on every pass through loop.
+14/02/12 CDN		Add functions to find file suffix and return whether file is a smart template.
  **********************************************/
 require_once('config/set_include_path.php');
 //require_once('config/globals.php');
@@ -1026,5 +1027,27 @@ function checkIsInteger($arg)
 
 	return $result;
 }
+
+function getFileSuffix($filename)
+{
+	$filename = trim($filename);
+	$path_parts = pathinfo($filename);
+	$filesuffix = $path_parts['extension'];
+	return $filesuffix;
+}
+
+function isSmartyTemplateFile($filename)
+{
+	$smartyFileSuffix = 'TPL';
+	$result = false;
+	$fileSuffix = strtoupper(getFileSuffix($filename)); 
+	
+	if ($smartyFileSuffix == $fileSuffix)
+	{
+		$result = true;
+	}
+	return $result;
+}
+
 
 ?>
