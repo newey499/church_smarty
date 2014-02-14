@@ -62,7 +62,6 @@ $row = Menu::getMenuItemContent($id);
  */
 
 $template_dir = $oSmarty->getTemplateDir();
-var_dump($template_dir);
 
 if (empty($row['smartytemplate']))
 {

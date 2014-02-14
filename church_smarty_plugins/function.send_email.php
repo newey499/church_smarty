@@ -43,13 +43,9 @@ function smarty_function_send_email($params, $smarty)
 
 	$oMailer = new SendEmail(isset($_POST['sendemail']));
 	
-	if (! isset($_POST['sendemail']))
+	if (isset($_POST['sendemail']))
 	{
-		print("<h4>sendemail not set</h4>");
-	}
-  else 
-	{
-		print("<h4>sendemail is set</h4>");	
+		// print("<h4>sendemail is set</h4>");	
 		$oMailer->exec( $_POST['emailrecipient'],
 										$_POST['emailreplyto1'],
 										$_POST['emailreplyto2'],			

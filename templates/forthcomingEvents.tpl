@@ -5,7 +5,131 @@
 filename: forthcomingEvents.tpl
 
 ******************************************}
+<h2>Whats On</h2>
 
-<h4>Found Smarty Template file [templates/forthcomingEvents.tpl] found.</h4>
+<h4>
+Diary of Forthcoming Events
+</h4>
 
-<h4>Smarty current dir [{$smarty.current_dir}] </h4>
+<p>
+
+<b>
+For further information contact the Church Secretary
+<br />
+Gloria Burrows
+<br />
+01384 - 894948
+<br >
+
+<p>
+{include 'common/callEmailForm.tpl' 
+	emailrecipient='gloria.burrows@christchurchlye.org.uk'}
+</p>
+
+
+or use our RSS Feed.
+&nbsp;&nbsp;
+
+<img	src="images/feed-icon-14x14.png"
+      alt="RSS Feed of Christ Church Forthcoming Events"
+  		onclick="location.href='http://www.christchurchlye.org.uk/rss.xml'"
+			onmouseover="this.style.cursor='pointer'"
+			title="RSS Feed of Christ Church Forthcoming Events"
+			width="14" height="14" />
+
+
+</b>
+
+</p>
+
+<p>
+
+<table>
+
+<tr>
+
+	<td>
+		<form name="showall" 
+			  action="{$smarty.server.SCRIPT_NAME}?id={$primary_key_menu_id}" method="post">
+
+			<input type="hidden" name="forthcomingeventsearch"
+			value="">
+			<input type="submit" value="Show All Events">
+		</form>
+	</td>
+
+	<td>
+
+
+		<form name="input"
+			  action="{$smarty.server.SCRIPT_NAME}?id={$primary_key_menu_id}" method="post">
+
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			&nbsp;
+
+			<input type="text"
+		       name="forthcomingeventsearch"
+					 value=""
+		       width="1200"
+		       maxlength="120">
+
+			<input type="submit" value="Search Events">
+
+		</form>
+	</td>
+
+</tr>
+
+</table>
+
+</p>
+
+<p>
+
+{get_forthcoming_events out="oForthcomingEvents"}
+
+{foreach $oForthcomingEvents->aEvents as $aEvent}
+
+	<h4>
+		{$aEvent.eventname}
+	</h4>
+
+{/foreach}
+
+</p>
+
+
+<p>
+
+
+	<br />
+  <b>Forthcoming events for the Worcester Diocese</b> may be found in the
+  Diocesan
+
+  <a href="http://www.cofe-worcester.org.uk/AA/154">
+  newsletter.
+  </a>
+
+  <br />
+  The newsletter is stored on the Worcester Diocesan website in PDF format.
+  You may need to download a copy of the
+
+  <a href="http://www.adobe.com/downloads/">
+  Adobe Reader
+  </a>
+
+ 
+  software or another pdf reader such as Foxit for
+	<a href="http://foxitsoftware.com/Secure_PDF_Reader/">
+  Windows
+	</a>
+	or 
+	<a href="https://www.foxitsoftware.com/pdf/desklinux/">
+  Linux
+	</a>
+
+  all of which are free.
+
+</p>
