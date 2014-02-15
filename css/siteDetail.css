@@ -186,33 +186,37 @@ CSS for email data entry form
 CSS for forthcoming events display
 
 ***********************************************************************/
-.forthcomingEventTitle
+#forthcomingEventTitle
 {
+	font-size: 1.2em;	
+	font-weight: bold;
 	background: silver;
-	/* width: 100%; */
-	/* margin-left: 5px; */
 	padding-left: 1em;
-
-	border-top: 		black 1px solid;
-	border-left: 		black	1px solid;
-	border-bottom: 	black 1px solid;
-	border-right:  	black	1px solid;
+	
+  border: blue 1px solid;
+	border-radius:5px;
+  padding: 4px;
 }
 
-.forthcomingEventDate
+#forthcomingEventDate
 {
 	margin-left: 10px;
-	background: white;
+	font-size: 1em;		
 }
 
-.forthcomingEventDescription
+#forthcomingEventDescription
 {
-	/* margin-left: 10px; */
-	background: white;
-	/* padding-left: 0.5em; */
-	/* padding-right: 0.5em; */
 	padding-bottom: 0.1em;
+	font-size: 1em;		
 }
+
+#forthcomingEventContactPoints
+{
+	width: 100%;
+	font-size: 1em;	
+	padding-bottom: 0.5em;	
+}
+
 
 
 

@@ -87,19 +87,64 @@ or use our RSS Feed.
 
 </p>
 
-<p>
-
 {get_forthcoming_events out="oForthcomingEvents"}
+
 
 {foreach $oForthcomingEvents->aEvents as $aEvent}
 
-	<h4>
-		{$aEvent.eventname}
-	</h4>
+		<div id='forthcomingEventTitle' >
+			{$aEvent.eventname}
 
+			<br />
+			{if $aEvent.eventTime == #FC_HIDE_TIME#} 
+
+				{$aEvent.displayEventDate}
+
+			{else}
+
+				{$aEvent.displayEventDateTime}
+
+			{/if}		
+
+		</div>
+
+		<br>
+		
+		<div id='forthcomingEventDescription'>
+		{$aEvent.eventdesc}	
+		</div>
+
+		<hr>
+
+		<table id='forthcomingEventContactPoints'>
+
+			<tr>
+				<td>
+				Contact Points:				
+				</td>
+
+				<td>
+				{$aEvent.contactname}	
+				</td>
+
+				<td>
+				Phone:				
+				</td>			
+
+				<td>
+				{$aEvent.contactphone}				
+				</td>	
+
+				<td>
+				{$aEvent.contactemail}				
+				</td>	
+
+			</tr>
+
+
+		</table>
+	
 {/foreach}
-
-</p>
 
 
 <p>
