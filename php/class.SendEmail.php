@@ -87,7 +87,15 @@ class SendEmail
 		
 		if (strtoupper(trim($replyto1)) == strtoupper(trim($replyto2)))
 		{
-			$this->from    = $replyto1; // validate replyto1 == replyto2 - throw exception if not			
+			$this->from    = $replyto1; 		
+			
+			// If we get this far then the Email reply addresses are equal and
+			// not empty so finally check that the contain a valid email address.
+			if (! filter_var($replyto1, FILTER_VALIDATE_EMAIL))
+			{
+				$this->aErrors['replyto1'] [] = '"' . $replyto1 . '" is not a valid email address';
+				$result = false;
+			}			
 		}
 		else 
 		{
@@ -101,16 +109,21 @@ class SendEmail
 			$result = false;			
 		}
 		
-		if (empty($this->content))
+		if (empty($this->body))
 		{
-			$this->aErrors['content'] [] = '"Content" may not be empty';		
+			$this->aErrors['body'] [] = '"Content" may not be empty';		
 			$result = false;			
 		}
 		
 		$this->validEmail  = $result;		
 		
+		if (! $result)
+		{
+			return $result;
+		}
+			
 		//var_dump($this->aErrors);
-		print_r($this);
+		//print_r($this);
 		
 		return $result;
 	}

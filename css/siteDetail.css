@@ -21,7 +21,17 @@ site wide CSS detail configuration
 	font-size:1.2em
 }
 
-/***
+#error
+{
+	color: red;
+	/* font-weight: bold; */
+  /* font-size: 12px; */
+  font-size: 0.7em;
+	/* font-style: italic; */
+	/* font-style: oblique; */
+}
+
+/**********************************************
 Anchors CSS
 **************/
 a

@@ -32,8 +32,13 @@
 	
 	<colgroup width="150">
 	<colgroup width="*">
-	
 
+	{if ! $oEmail->validEmail}
+		<span style="color: red;">
+			Sorry, there are problems with your email submission.
+		</span>
+	{/if}	
+		
 	<tbody> 
  
  		<tr>
@@ -54,6 +59,13 @@
 	    Subject &nbsp;
 			</td>
 	    <td>
+			<span id="error">
+			{foreach $oEmail->aErrors.subject as $errorMsg}
+				
+				{$errorMsg}<br>
+				
+			{/foreach}
+			</span>				
 	    <input type="text" size="50" name="emailsubject"
 		value="{$smarty.post.emailsubject}"
 			</td>
@@ -64,6 +76,14 @@
 	    Your email &nbsp;
 	    </td>
 			<td>
+			<span id="error">
+			{foreach $oEmail->aErrors.replyto1 as $errorMsg}
+				
+				{$errorMsg}<br>
+				
+			{/foreach}
+			</span>
+			
 	    <input type="text" size="50" name="emailreplyto1" 
 				value="{$smarty.post.emailreplyto1}" >  
 			</td>
@@ -75,6 +95,14 @@
 	    Confirm email &nbsp;
 	    </td>
 			<td>
+			<span id="error">
+			{foreach $oEmail->aErrors.replyto2 as $errorMsg}
+				
+				{$errorMsg}<br>
+				
+			{/foreach}
+			</span>				
+				
 	    <input type="text" size="50" name="emailreplyto2" 
 			value="{$smarty.post.emailreplyto2}" >  
 			</td>
@@ -82,7 +110,14 @@
 
  		<tr>
 	 		<td colspan="2">
- 			Content (1000 Characters Maximum)    
+				Content (1000 Characters Maximum)<br>
+				<span id="error">
+				{foreach $oEmail->aErrors.body as $errorMsg}
+
+					{$errorMsg}<br>
+
+				{/foreach}
+				</span>				
   		</td>
 		</tr>
       

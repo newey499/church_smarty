@@ -5,7 +5,8 @@
 filename: forthcomingEvents.tpl
 
 ******************************************}
-<h2>Whats On</h2>
+<h2>{$pageTitle}</h2>
+
 
 <h4>
 Diary of Forthcoming Events
