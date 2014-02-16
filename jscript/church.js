@@ -19,8 +19,9 @@ args
 function changeCalendarMonth(newMonth, siteMainPage)
 {
 	//var newUrl = "http://" + location.hostname + "/index.php" + "?displaypage=calendar.php";
-	var newUrl = "http://" + location.hostname + "/" + siteMainPage + "?displaypage=calendar.php";
-
+	// var newUrl = "http://" + location.hostname + "/" + siteMainPage + "?displaypage=calendar.php";
+	var newUrl = siteMainPage;
+	
 	newUrl += "&" + "calmonth=" + newMonth + "#today";
 
 

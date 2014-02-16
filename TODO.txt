@@ -1,11 +1,12 @@
-1) Create bobiles_admin@localhost Mysql user on isp server
-   Grant SELECT, INSERT, UPDATE, DELETE and SHOW_VIEW  on bobiles_church 
-   and bobiles_church_smarty schemas
+Create bobiles_admin@localhost Mysql user on isp server
+Grant SELECT, INSERT, UPDATE, DELETE and SHOW_VIEW  on bobiles_church 
+and bobiles_church_smarty schemas
 
-2) Modify bobiles_apache@localhost Mysql user on isp server
-	 Grant SELECT, SHOW VIEW, CREATE, CREATE TEMPORARY TABLES, INDEX, DROP
-	 and SHOW VIEW on bobiles_church 
-   and bobiles_church_smarty schemas
+Modify bobiles_apache@localhost Mysql user on isp server
+Grant SELECT, SHOW VIEW, CREATE, CREATE TEMPORARY TABLES, INDEX, DROP
+and SHOW VIEW on bobiles_church 
+and bobiles_church_smarty schemas
 
+Set up subdomains on isp server for website and admin areas
 
 

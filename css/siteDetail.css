@@ -232,3 +232,36 @@ input:hover
 }
 
 
+/**********************************************************************
+
+CSS for calendar display
+
+***********************************************************************/
+
+.calendar
+{
+  border: blue 2px solid;
+	vertical-align:top;
+}
+th.calendar
+{
+	width:14%;
+}
+tr.calendar
+{
+  border: blue 2px solid;
+	vertical-align:top;
+}
+td.calendar
+{
+  border: blue 2px solid;
+	vertical-align:top;
+	padding:2px;
+}
+td.calendardim
+{
+  border: blue 2px solid;
+	vertical-align:top;
+	background:silver;
+	padding:2px;
+}
