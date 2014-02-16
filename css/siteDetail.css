@@ -6,6 +6,7 @@ site wide CSS detail configuration
 
  */
  
+@import url("css/print.css") print;
  
 #christchurchtitle
 {
@@ -218,8 +219,16 @@ CSS for forthcoming events display
 }
 
 
+input
+{
+  border: blue 1px solid;
+	border-radius:5px;	
+  padding: 2px;	
+}
 
-
-
+input:hover
+{
+	color: orange;	/* mouse over a link turns it to orange */
+}
 
 

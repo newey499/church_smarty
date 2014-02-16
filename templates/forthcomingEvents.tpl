@@ -24,7 +24,7 @@ Gloria Burrows
 
 <p>
 {include 'common/callEmailForm.tpl' 
-	emailrecipient='gloria.burrows@christchurchlye.org.uk'}
+	emailrecipient='office@christchurchlye.org.uk'}
 </p>
 
 
@@ -124,7 +124,7 @@ or use our RSS Feed.
 				</td>
 
 				<td>
-				{$aEvent.contactname}	
+				{$aEvent.contactname = $aEvent.eventname}	
 				</td>
 
 				<td>
@@ -136,7 +136,9 @@ or use our RSS Feed.
 				</td>	
 
 				<td>
-				{$aEvent.contactemail}				
+				{assign var='emailrecipient' value=$aEvent.contactemail|default:'office@christchurchlye.org.uk'}
+				{assign var='emailsubject'	 value=$aEvent.eventname|default:''}
+				{include 'common/callEmailForm.tpl'}
 				</td>	
 
 			</tr>
@@ -149,8 +151,6 @@ or use our RSS Feed.
 
 <p>
 
-
-	<br />
   <b>Forthcoming events for the Worcester Diocese</b> may be found in the
   Diocesan
 
@@ -179,3 +179,6 @@ or use our RSS Feed.
   all of which are free.
 
 </p>
+
+<br>
+<br>

@@ -12,8 +12,6 @@ $oMysqli = MysqliExtended::getInstance();
 $oSmarty = new SmartyExtended();
 //** un-comment the following line to show the debug console
 //$oSmarty->debugging = true;
-// add directories where plugins are stored
-$oSmarty->setPluginsDir('./church_smarty_plugins');
 
 //$oMenuLeft  = new Menu(Menu::LEFT);
 //$oSmarty->assign('oMenuLeft', $oMenuLeft->aMenuGroups);
@@ -45,6 +43,7 @@ else
 {
 	$id = "1";
 }
+$content = "Content not found for id [$id]";
 
 print("<h1>id [" . $id . "]</h1>");
 $oSmarty->assign('primary_key_menu_id', $id);
@@ -61,11 +60,9 @@ $row = Menu::getMenuItemContent($id);
  *     and use as content.
  */
 
-$template_dir = $oSmarty->getTemplateDir();
-
 if (empty($row['smartytemplate']))
 {
-	$oSmarty->assign('centreColumnContent', $row['content']);	
+	$content = $row['content'];	
 }
 else 
 {
@@ -83,13 +80,12 @@ else
 					$content = "<h4>Smarty template file [" . $row['smartytemplate'] . "] not found.</h4>";		
 				}	
 			}
-			
-			$oSmarty->assign('centreColumnContent', $content);					
+							
 	}
 	
 }
 
-
+$oSmarty->assign('centreColumnContent', $content);		
 
 $oSmarty->assign('pageTitle', $row['prompt']);
 //$oSmarty->assign('calling_URL', 'index.php?id=' . $id);
