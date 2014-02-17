@@ -17,7 +17,7 @@ CDN 		27/02/2010  Fix to ensure class honours isvisible flag setting on regular 
 										a months events into the temporary calendar table.
 *************************************/
 
-require_once('class.MysqliExtended.php');
+require_once('php/class.MysqliExtended.php');
 
 
 Class Calendar
@@ -25,9 +25,12 @@ Class Calendar
 	/******************
 	 Properties
 	*********************/
-	private $month;
-	private $year;
-	private $day;
+	public $month;
+	public $year;
+	
+	
+	protected $day;
+	
 	//private $useTempTable = TRUE;   // Use a temporary table for live use
 	private $useTempTable = FALSE;  // development switch to leave the temporary table in existence during testing
 
@@ -53,6 +56,7 @@ Class Calendar
 		$this->createTable();
 		$this->loadForthcomingevents();	
 		$this->loadRegularevents();
+		
 		//mysql_query("CALL buildCalendarTableRows('" . $year . "-" . $month . "-01')");
 
 
@@ -133,6 +137,7 @@ Class Calendar
 
 		if ($this->oMysql->query($qry) == FALSE)
 		{
+			print($this->oMysql->error);
 			die("Failed to Import rows from forthcomingevents");
 		}
 
@@ -161,7 +166,7 @@ Class Calendar
 		$count = 0;
 
 		// while ( ( date_format($date, 'm') <= $this->month) || ( ($this->month + 1 ) == date_format($date, 'm'))  )
-		while ( processDate($date, $endDate)  )
+		while ( $this->processDate($date, $endDate)  )
 		{
 			for ($dow= 1; $dow <= 7; $dow++)
 			{
@@ -222,13 +227,19 @@ Class Calendar
 					 "  ) " . 					 
 		       "ORDER BY eventtime";  
 
-		if ($res = $this->oMysql->query($qry) == FALSE)
+		$res = $this->oMysql->query($qry);
+		
+		if (! $res)
 		{
+			print($this->oMysql->error);
 			die("Failed to Import rows from regularevents");
 		}
 
+		//echo 'Query ' . var_dump($qry) . "<br><br>";
+		//echo 'num_rows ' . $res->num_rows . "<br><br>";
+		//echo 'Result set ' . var_dump($res) . "<br><br>";
 
-		while ($row = $res->fetch_assoc()) 
+		while ( $row = $res->fetch_assoc() ) 
 		{
 			//print_r($row);
 
@@ -246,7 +257,7 @@ Class Calendar
 
 			$resForthCheck = $this->oMysql->query($qryForthcomingExists);
 
-			if ($resForthCheck->num_rows() == 0)
+			if ($resForthCheck->num_rows == 0)
 			{
 
 				$qry  = "INSERT INTO calendar ";
@@ -262,18 +273,18 @@ Class Calendar
 				$qry .= "'" . $row['isvisible'] . "' ";			
 				$qry .= " ) ";
 
-				if (! ($res = $this->oMysql->query($qry)))
+				if (! $this->oMysql->query($qry))
 				{
-					die("Insert on calendar table failed");
+					die("Insert of REGULAR event on calendar table failed");
 				}
+				
+				$resForthCheck->free_result();				
 
 			}
 
 		}
 
-		$resForthCheck->free_result();
-		$res-->free_result();
-
+		$res->free_result();
 
 		return $str;
 
@@ -281,7 +292,7 @@ Class Calendar
 
 
 	// $oDate - must be a datetime object
-	private function weekOfMonth($oDate)
+	protected function weekOfMonth($oDate)
 	{
 		$weekNo = ($oDate->format("d") / 7);
 		$week = 0;
@@ -306,7 +317,7 @@ Class Calendar
 
 
 	// $oDate - must be a datetime object
-	public function getEventStr($oDate)
+	protected function getEventStr($oDate)
 	{
 		$str = "";
 		$dow = strtoupper($oDate->format("l")); // Day of Week MONDAY, TUESDAY etc
@@ -376,6 +387,25 @@ Class Calendar
 		return $str;
 	}
 
+	/**********************
+	Expects two DateTime objects - returns true if $oDateCurrent <= $oDateEnd else returns false
+	******************************/
+	protected function processDate($oDateCurrent, $oDateEnd)
+	{
+		$result = true;
+
+		$current = date_format($oDateCurrent, 'Ymd');
+		$end = date_format($oDateEnd, 'Ymd');
+
+		$intResult = strcmp($current, $end);
+		$result = ( $intResult <= 0 );
+
+		//print("diff [" . $intResult . "]<br />\n");
+
+		return $result;
+	}	
+	
+	
 }; // End Class Calendar
   // =========================================================================
 

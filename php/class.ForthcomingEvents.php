@@ -5,7 +5,7 @@
 filename: class.ForthcomingEvents.php
 
  ******************************************/
-require_once 'php/class.MysqliExtended.php';
+require_onc('php/class.MysqliExtended.php');
 
 class ForthcomingEvents
 {

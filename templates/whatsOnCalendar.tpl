@@ -95,7 +95,14 @@ filename: whatsOnCalendar.tpl
 <br>
 
 
-{create_calendar_table out='oCalendar'}
+{create_calendar_table month=$month year=$year out='oCalendar'}
+
+<h4>
+	Month [{$oCalendar->month}]
+	<br>
+	Year [{$oCalendar->year}]
+	
+</h4>
 
 
 
