@@ -19,6 +19,50 @@ CDN 		27/02/2010  Fix to ensure class honours isvisible flag setting on regular 
 
 require_once('php/class.MysqliExtended.php');
 
+Class CalendarDay
+{
+	public $date;
+	
+	function __construct(DateTime $oDate) 
+	{
+		$this->date = $oDate->format("Y-m-d");
+	}
+	
+	function __destruct()
+	{
+	
+	}
+	
+};
+
+Class CalendarWeek
+{
+	public $week;
+	public $aDays = []; // Array of CalendarDay objects
+	
+	function __construct($week, DateTime $oDate)
+	{
+		$this->week = $week;
+		$this->addDays($oDate);
+	}
+	
+	function __destruct()
+	{
+		
+	}
+	
+	protected function addDays(DateTime $oDate)
+	{
+		$interval = DateInterval::createFromDateString('1 day');
+		for ($i = 1; $i <= 7; $i++)
+		{
+			$this->aDays [] = new CalendarDay($oDate);
+			$oDate->add($interval);
+		}
+	}
+	
+};
+
 
 Class Calendar
 {
@@ -27,14 +71,23 @@ Class Calendar
 	*********************/
 	public $month;
 	public $year;
+	public $startOfMonth = "start of month not set";
+	public $startOfMonthDayOfWeek_int = -1;
+	public $startOfMonthDayOfWeek_str = "start of month day not set";	
+	public $startOfCalendarDayOfWeek_int = -1;
+	public $startOfCalendarDayOfWeek_str = "start of Calendar day not set";	
+	public $endOfCalendarDayOfWeek_int = -1;
+	public $endOfCalendarDayOfWeek_str = "end of Calendar day not set";	
 	
+	public $row_count = 0;
+	public $aWeeks = []; // Array of CalendarWeek objects
 	
 	protected $day;
 	
-	//private $useTempTable = TRUE;   // Use a temporary table for live use
-	private $useTempTable = FALSE;  // development switch to leave the temporary table in existence during testing
+	//protected $createCalendarTableInMemory = TRUE;   // Use a temporary table for live use
+	protected $createCalendarTableInMemory = FALSE;  // development switch to leave the temporary table in existence during testing
 
-	private $oMysql = NULL;
+	protected $oMysql = NULL;
 	
 	function __construct($month, $year) 
 	{
@@ -43,6 +96,10 @@ Class Calendar
 		$this->month = intval($month);
 		$this->year  = intval($year);
 
+		$this->startOfMonth = sprintf('%d-%02d-01 00:00:00', $this->year, $this->month);
+		
+		$this->row_count = 0;
+		
 		$this->oMysql = MysqliExtended::getInstance();
 		
 		// print("<h1>month [$month] year [$year]</h1>");
@@ -57,14 +114,35 @@ Class Calendar
 		$this->loadForthcomingevents();	
 		$this->loadRegularevents();
 		
-		//mysql_query("CALL buildCalendarTableRows('" . $year . "-" . $month . "-01')");
+		$res = $this->oMysql->query('SELECT count("id") as row_count from calendar where isvisible = "YES"');
+		
 
+		
+		if (! $res)
+		{
+			print($this->oMysql->error);
+			die('MySql query failed');
+		}
 
+		if ($row = $res->fetch_assoc())
+		{
+			$this->row_count = $row['row_count'];
+		}
+		
+		// ================================================================
+		// Load the Calendar events into a format Smarty can handle easily.
+		// Calendar
+		//		Array of Calendar week objects
+		//			Array of Calendar day objects
+		//				Array of Calendar Event Objects
+		// =================================================================
+		$this->loadTableIntoClass();
+		
 	}
 
 	function __destruct() 
 	{
-		if ($this->useTempTable)
+		if ($this->createCalendarTableInMemory)
 		{
 			$this->dropTable();
 		}
@@ -79,7 +157,7 @@ Class Calendar
 	{
 		$this->dropTable();
 
-		if ($this->useTempTable)
+		if ($this->createCalendarTableInMemory)
 		{
 			$qry  =  "CREATE TEMPORARY TABLE calendar ";
 		}
@@ -97,8 +175,20 @@ Class Calendar
 		$qry .= "  eventname varchar(250) NOT NULL, ";
 		$qry .= "  linkurl varchar(250), ";
 		$qry .= "  isvisible enum('YES', 'NO') DEFAULT 'YES' ";		
-		//$qry .= ") TYPE=HEAP; "; // CDN 20/4/12 - new version of MySQL doesn't support this syntax
+		
+		// Always use the memory engine - its quicker and it still stores the table
+		// in the schema as long as the "TEMPORARY" clause is not used.
 		$qry .= ") ENGINE=MEMORY; ";
+		/******************************************
+		if ($this->createCalendarTableInMemory)
+		{
+			$qry .= ") ENGINE=MEMORY; ";
+		}
+		else 
+		{
+			$qry .= ") ENGINE=MyISAM; ";			
+		}
+		*********************************************/
 
 		if ($this->oMysql->query($qry) == FALSE)
 		{
@@ -404,6 +494,54 @@ Class Calendar
 
 		return $result;
 	}	
+	
+	
+	// ================================================================
+	// Load the Calendar events into a format Smarty can handle easily.
+	// Calendar
+	//		Array of Calendar week objects
+	//			Array of Calendar day objects
+	//				Array of Calendar Event Objects
+	// =================================================================
+	protected function loadTableIntoClass()
+	{
+		$oDate = new DateTime($this->startOfMonth);
+		$this->startOfMonth = $oDate->format("Y-m-d 00:00:00");
+		$aDateInfo = getdate($oDate->getTimestamp());
+
+		$this->startOfMonthDayOfWeek_int = $aDateInfo['wday'];
+		$this->startOfMonthDayOfWeek_str = $aDateInfo['weekday'];		
+
+		$oDateCalStart = clone $oDate;
+		$aDateInfo = getdate($oDateCalStart->getTimestamp());		
+		$this->startOfCalendarDayOfWeek_int = $aDateInfo['wday'];
+		$this->startOfCalendarDayOfWeek_str = $aDateInfo['weekday'];			
+		$interval = DateInterval::createFromDateString(sprintf("%d day", ($this->startOfCalendarDayOfWeek_int - 1)));
+		$oDateCalStart->sub($interval);
+		$aDateInfo = getdate($oDateCalStart->getTimestamp());		
+		$this->startOfCalendarDayOfWeek_int = $aDateInfo['wday'];
+		$this->startOfCalendarDayOfWeek_str = $aDateInfo['weekday'];	
+		
+		$oDateCalEnd = clone $oDateCalStart;
+		$interval = DateInterval::createFromDateString('1 month');
+		$oDateCalEnd->add($interval);					
+		$aDateInfo = getdate($oDateCalEnd->getTimestamp());		
+		$this->endOfCalendarDayOfWeek_int = $aDateInfo['wday'];
+		$this->endOfCalendarDayOfWeek_str = $aDateInfo['weekday'];			
+		$interval = DateInterval::createFromDateString(sprintf("%d day", (7 - $this->endOfCalendarDayOfWeek_int)));
+		$oDateCalEnd->add($interval);
+		$aDateInfo = getdate($oDateCalEnd->getTimestamp());		
+		$this->endOfCalendarDayOfWeek_int = $aDateInfo['wday'];
+		$this->endOfCalendarDayOfWeek_str = $aDateInfo['weekday'];			
+		
+		$oCurrentDate = clone $oDateCalStart;
+		
+		$i = 1;
+		$this->aWeeks [] = new CalendarWeek("week " . sprintf("%d", $i), $oCurrentDate);
+		
+
+	}
+	
 	
 	
 }; // End Class Calendar

@@ -17,8 +17,7 @@
 
 
 {* Display the current year as 4 digits *}
-Copyright &copy; 2004 - {date_now_format format="Y"}
-
+Copyright &copy; 2004 - {$smarty.now|date_format:"%Y"}
 Christ Church Lye &amp; Stambermill Parochial Church Council
 
 <br />

@@ -18,6 +18,7 @@ filename: whatsOnCalendar.tpl
 {cbx_months months=14}
 
 <br>
+
 <br>
 
 <p>
@@ -47,50 +48,7 @@ filename: whatsOnCalendar.tpl
 
 <br>
 
-<table class="calendar">
 
-	<tr class="calendar">
-		<th  class="calendar" >
-			<b>
-			Monday
-			</b>
-		</th>
-		<th  class="calendar" >
-			<b>
-			Tuesday
-			</b>
-		</th>
-		<th  class="calendar" >
-			<b>
-			Wednesday
-			</b>
-		</th>
-		<th  class="calendar" >
-			<b>
-			Thursday
-			</b>
-		</th>
-		<th  class="calendar" >
-			<b>
-			Friday
-			</b>
-		</th>
-		<th  class="calendar" >
-			<b>
-			Saturday
-			</b>
-		</th>
-		<th  class="calendar" >
-			<b>
-			Sunday
-			</b>
-		</th>
-	</tr>
-
-</table>
-
-
-</p>
 
 <br>
 
@@ -101,8 +59,49 @@ filename: whatsOnCalendar.tpl
 	Month [{$oCalendar->month}]
 	<br>
 	Year [{$oCalendar->year}]
-	
+	<br>
+	row_count [{$oCalendar->row_count}]
+	<br>
+	start of month [{$oCalendar->startOfMonth}]
+	<br>	
+	startOfMonthDayOfWeek_int [{$oCalendar->startOfMonthDayOfWeek_int}]
+	<br>	
+	startOfMonthDayOfWeek_str [{$oCalendar->startOfMonthDayOfWeek_str}]	
+	<br>
+	startOfCalendarDayOfWeek_int [{$oCalendar->startOfCalendarDayOfWeek_int}]
+	<br>	
+	startOfCalendarDayOfWeek_str [{$oCalendar->startOfCalendarDayOfWeek_str}]	
+	<br>
+	endOfCalendarDayOfWeek_int [{$oCalendar->endOfCalendarDayOfWeek_int}]
+	<br>	
+	endOfCalendarDayOfWeek_str [{$oCalendar->endOfCalendarDayOfWeek_str}]	
+	<br>	
 </h4>
+
+<p>
+
+<table class="calendar">
+
+	{foreach $oCalendar->aWeeks as $oCalendarWeek }
+
+		{include file='common/whatsOnCalendarWeekDaysHeader.tpl'}
+		
+		<tr>
+			<td>
+				Week [{$oCalendarWeek->week}]
+			</td>
+			
+		</tr>
+
+
+	
+	{/foreach}
+
+</table>
+
+</p>
+
+
 
 
 
