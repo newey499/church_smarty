@@ -63,4 +63,8 @@ define("ST_UPLOAD_MP3_FILE", 100);
 define("ST_TOUCH", 101);
 
 
+// Values MySql returns as true and false
+define("MYSQL_TRUE",  1);
+define("MYSQL_FALSE", 0);
+
 ?>

@@ -90,6 +90,14 @@ filename: whatsOnCalendar.tpl
 		{foreach $oCalendarWeek->aDays as $oCalendarDay}
 			<td class="calendar">
 				{$oCalendarDay->date_unix|date_format:"%d/%m/%Y"}
+				<br>
+				{foreach $oCalendarDay->aEvents as $aEvent}
+					<br>
+					{$aEvent.eventname}
+					<br>					
+				{/foreach}
+					
+				
 			</td>			
 			
 		{/foreach}

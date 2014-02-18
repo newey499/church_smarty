@@ -24,10 +24,52 @@ Class CalendarDay
 	public $date_str;
 	public $date_unix;
 	
-	function __construct(DateTime $oDate) 
+	public $month_str;
+	public $month_int;
+	public $day_in_requested_month = true;
+	
+	public $aEvents = [];
+	
+	function __construct(DateTime $oStartOfMonth, DateTime $oDate) 
 	{
-		$this->date_str= $oDate->format("Y-m-d");
+		$oMysql = MysqliExtended::getInstance();
+		$oStatement = $oMysql->stmt_init();
+		
+		$this->date_str = $oDate->format("Y-m-d");
 		$this->date_unix = $oDate->getTimestamp();
+		
+		$this->day_in_requested_month = ($oStartOfMonth->format("m") == $oDate->format("m") );
+		
+		$this->month_str = $oStartOfMonth->format("m");
+		$this->month_int = intval($this->month_str);
+		
+		$qry = " SELECT " . Calendar::SELECT_COLUMNS . 
+					 " , (eventtime <> '11:11:00') AS displaytime " .
+					 " FROM calendar " .
+					 " WHERE eventdate = ? and isvisible = 'YES' " .
+					 " ORDER BY eventtime";
+		
+		$this->aEvents = [];
+		
+		if(!$oStatement->prepare($qry))
+		{
+				die("Failed to prepare statement query [$qry]");
+		}
+		else
+		{
+				$oStatement->bind_param("s", $this->date_str);
+
+				$oStatement->execute();
+				$result = $oStatement->get_result();
+				while ($row = $result->fetch_assoc())
+				{
+					$this->aEvents [] = $row;
+				}
+
+		}
+
+		$oStatement->close();
+		
 	}
 	
 	function __destruct()
@@ -57,7 +99,7 @@ Class CalendarWeek
 
 Class Calendar
 {
-	const SELECT_COLUMNS = ' id, parentid, eventsource, eventdate, eventtime, linkurl, isvisible ';	
+	const SELECT_COLUMNS = ' id, parentid, eventsource, eventdate, eventtime, eventname, linkurl, isvisible ';	
 	
 	/******************
 	 Properties
@@ -561,7 +603,7 @@ Class Calendar
 				
 			for ($j = 1; $j <= 7; $j++)
 			{
-				$oCalendarWeek->aDays [] = new CalendarDay($oCurrentDate);
+				$oCalendarWeek->aDays [] = new CalendarDay(new DateTime($this->startOfMonth), $oCurrentDate);
 				$oCurrentDate->add($oAddOneDay);
 			}
 		
@@ -569,8 +611,12 @@ Class Calendar
 
 		foreach ($this->aWeeks as $oWeek)
 		{
-			var_dump($oWeek);
-			echo '<br><br>';
+			foreach ($oWeek->aDays as $aDay)
+			{
+				var_dump($aDay);
+				echo '<br><br>';				
+			}
+
 		}
 		
 		$oRes->free_result();
