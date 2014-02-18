@@ -84,15 +84,16 @@ filename: whatsOnCalendar.tpl
 
 	{foreach $oCalendar->aWeeks as $oCalendarWeek }
 
-		{include file='common/whatsOnCalendarWeekDaysHeader.tpl'}
-		
-		<tr>
-			<td>
-				Week [{$oCalendarWeek->week}]
-			</td>
-			
-		</tr>
+		{include file='common/whatsOnCalendarWeekDaysHeader.tpl'}				
 
+		<tr class="calendar">
+		{foreach $oCalendarWeek->aDays as $oCalendarDay}
+			<td class="calendar">
+				{$oCalendarDay->date_unix|date_format:"%d/%m/%Y"}
+			</td>			
+			
+		{/foreach}
+		</tr>
 
 	
 	{/foreach}

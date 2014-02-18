@@ -20,12 +20,14 @@ CDN 		27/02/2010  Fix to ensure class honours isvisible flag setting on regular 
 require_once('php/class.MysqliExtended.php');
 
 Class CalendarDay
-{
-	public $date;
+{	
+	public $date_str;
+	public $date_unix;
 	
 	function __construct(DateTime $oDate) 
 	{
-		$this->date = $oDate->format("Y-m-d");
+		$this->date_str= $oDate->format("Y-m-d");
+		$this->date_unix = $oDate->getTimestamp();
 	}
 	
 	function __destruct()
@@ -43,7 +45,6 @@ Class CalendarWeek
 	function __construct($week, DateTime $oDate)
 	{
 		$this->week = $week;
-		$this->addDays($oDate);
 	}
 	
 	function __destruct()
@@ -51,21 +52,13 @@ Class CalendarWeek
 		
 	}
 	
-	protected function addDays(DateTime $oDate)
-	{
-		$interval = DateInterval::createFromDateString('1 day');
-		for ($i = 1; $i <= 7; $i++)
-		{
-			$this->aDays [] = new CalendarDay($oDate);
-			$oDate->add($interval);
-		}
-	}
-	
 };
 
 
 Class Calendar
 {
+	const SELECT_COLUMNS = ' id, parentid, eventsource, eventdate, eventtime, linkurl, isvisible ';	
+	
 	/******************
 	 Properties
 	*********************/
@@ -534,16 +527,55 @@ Class Calendar
 		$this->endOfCalendarDayOfWeek_int = $aDateInfo['wday'];
 		$this->endOfCalendarDayOfWeek_str = $aDateInfo['weekday'];			
 		
+		/**************************
+		$qry = " delete from calendar " . 
+					 " where " . 
+					 " eventdate < '" . $oDateCalStart->format("Y-m-d") . "' " .
+					 " or " . 
+					 " eventdate > '" . $oDateCalEnd->format("Y-m-d") . "' ";
+		
+		if (! $this->oMysql->query($qry))
+		{
+			die("DELETE from calendar table failed: [" . $this->oMysql->error . "] qry [$qry]");
+		}
+		***************************************/
+		$qry = ' SELECT ' . Calendar::SELECT_COLUMNS .
+					 ' FROM calendar ' . 
+					 ' ORDER BY eventdate, eventtime';
+		$oRes = false;
+		if (! $oRes = $this->oMysql->query($qry))
+		{
+			die("SELECT from calendar table failed: [" . $this->oMysql->error . "] qry [$qry]");
+		}		
+		
 		$oCurrentDate = clone $oDateCalStart;
+		$oAddOneDay = DateInterval::createFromDateString("1 day");
 		
 		$i = 1;
-		$this->aWeeks [] = new CalendarWeek("week " . sprintf("%d", $i), $oCurrentDate);
+		$oCalendarWeek = NULL;
+		while ($this->processDate($oCurrentDate, $oDateCalEnd))
+		{
+			
+			$oCalendarWeek = new CalendarWeek("week " . sprintf("%d", $i++), $oCurrentDate);
+			$this->aWeeks [] = $oCalendarWeek;
+				
+			for ($j = 1; $j <= 7; $j++)
+			{
+				$oCalendarWeek->aDays [] = new CalendarDay($oCurrentDate);
+				$oCurrentDate->add($oAddOneDay);
+			}
 		
+		}
 
+		foreach ($this->aWeeks as $oWeek)
+		{
+			var_dump($oWeek);
+			echo '<br><br>';
+		}
+		
+		$oRes->free_result();
 	}
-	
-	
-	
+		
 }; // End Class Calendar
   // =========================================================================
 
