@@ -48,7 +48,8 @@
   	  <td> 
 				<span id="emailFormRecipient">
 					<input type="text" size="50" name="emailrecipient" 
-								 value="{$smarty.post.emailrecipient}" readonly >  
+								 value="{$smarty.post.emailrecipient}" 
+								 readonly >  
 				</span>	
   	  </td>
 		</tr>
@@ -66,7 +67,8 @@
 			{/foreach}
 			</span>				
 	    <input type="text" size="50" name="emailsubject"
-		value="{$smarty.post.emailsubject}"
+						 value="{$smarty.post.emailsubject}"
+						 placeholder="Email Subject">
 			</td>
 		</tr>
     
@@ -84,7 +86,8 @@
 			</span>
 			
 	    <input type="text" size="50" name="emailreplyto1" 
-				value="{$smarty.post.emailreplyto1}" >  
+						 value="{$smarty.post.emailreplyto1}"
+						 placeholder="Reply Email address">  
 			</td>
 		</tr>
 
@@ -103,7 +106,8 @@
 			</span>				
 				
 	    <input type="text" size="50" name="emailreplyto2" 
-			value="{$smarty.post.emailreplyto2}" >  
+						 value="{$smarty.post.emailreplyto2}"
+						 placeholder="Confirm Reply Email address">  
 			</td>
 		</tr>
 

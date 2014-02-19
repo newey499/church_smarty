@@ -8,13 +8,11 @@ Creates a table combining rows
 from forthcomingevents and regularevents tables
 for a given month and year.
 
-Temporary table is deleted by destructor
-
-Subclass this object and override the getEventStr
-method to change the html the object spits back.
-
-CDN 		27/02/2010  Fix to ensure class honours isvisible flag setting on regular and forthcoming tables when loading
+CDN 		27/02/2010  Fix to ensure class honours isvisible flag setting on 
+										regular and forthcoming tables when loading
 										a months events into the temporary calendar table.
+CDN     19/02/2014  Rewrite to use as a Model for Smarty template engine website 
+										loosely modelled on MVC concept.
 *************************************/
 
 require_once('php/class.MysqliExtended.php');
@@ -133,11 +131,7 @@ Class Calendar
 
 		$this->startOfMonth = sprintf('%d-%02d-01 00:00:00', $this->year, $this->month);
 		
-		$this->row_count = 0;
-		
 		$this->oMysql = MysqliExtended::getInstance();
-		
-		// print("<h1>month [$month] year [$year]</h1>");
 
 		/********
 			CDN 12/12/11
@@ -148,22 +142,7 @@ Class Calendar
 		$this->createTable();
 		$this->loadForthcomingevents();	
 		$this->loadRegularevents();
-		
-		$res = $this->oMysql->query('SELECT count("id") as row_count from calendar where isvisible = "YES"');
-		
-
-		
-		if (! $res)
-		{
-			print($this->oMysql->error);
-			die('MySql query failed');
-		}
-
-		if ($row = $res->fetch_assoc())
-		{
-			$this->row_count = $row['row_count'];
-		}
-		
+			
 		// ================================================================
 		// Load the Calendar events into a format Smarty can handle easily.
 		// Calendar
@@ -256,9 +235,7 @@ Class Calendar
 		$qry .= "        OR "; 
 		$qry .= "        month(eventdate) + 1 = " . $this->month + 1;		
 		$qry .= "      )";
-		//$qry .= "      AND year(eventdate) = " . $this->year;
 		$qry .= "      AND isvisible = 'YES' ";
-
 
 		if ($this->oMysql->query($qry) == FALSE)
 		{
@@ -279,34 +256,15 @@ Class Calendar
 		//$endDate->setDate($this->year, $this->month + 1, $this->day);
 		$endDate->setDate($this->year, $this->month + 1, 7);
 
-		//$date->setDate($this->year, $this->month, $this->day);
 		$date->setDate($this->year, $this->month, 1);
 		$date->modify("-7 day");  // pick up last seven days of previous month
 
-		/********
-		print("$count, this month[" . $this->month .
-			  "] date month [" . date_format($date, 'm') . "] " . 
-			  " termination date [" . date_format($endDate, 'Y-m-d') . "]<br />\n");
-		*************/
-		$count = 0;
-
-		// while ( ( date_format($date, 'm') <= $this->month) || ( ($this->month + 1 ) == date_format($date, 'm'))  )
 		while ( $this->processDate($date, $endDate)  )
 		{
 			for ($dow= 1; $dow <= 7; $dow++)
 			{
 				$this->getRegularEvent($date);
 				$date->modify("+1 day");
-
-				/*******
-				print("$count, this month[" . $this->month .
-					  "] date month [" . date_format($date, 'm') .
-					  "] <br />\n");
-				**********/
-				$count = $count + 1;
-
-
-
 			}
 		}
 
@@ -325,8 +283,6 @@ Class Calendar
 
 		$qry = "SELECT id, dayofweek, weekofmonth, startdate, enddate, eventtime, eventname," . 
 		       "       eventdesc, isvisible, linkurl " . 
-	         //" , DATEDIFF(startdate, '" . $mysqlToday . "') AS diffstart " . 
-	         //" , DATEDIFF(enddate, '" . $mysqlToday . "') AS diffend " . 
 	         " , DATEDIFF(startdate, '" . $oDate->format("Y-m-d") . "') AS diffstart " . 
 	         " , DATEDIFF(enddate, '" . $oDate->format("Y-m-d") . "') AS diffend " . 
 		       "FROM regularevents " . 
@@ -360,15 +316,8 @@ Class Calendar
 			die("Failed to Import rows from regularevents");
 		}
 
-		//echo 'Query ' . var_dump($qry) . "<br><br>";
-		//echo 'num_rows ' . $res->num_rows . "<br><br>";
-		//echo 'Result set ' . var_dump($res) . "<br><br>";
-
 		while ( $row = $res->fetch_assoc() ) 
 		{
-			//print_r($row);
-
-
 			// 12/12/11		CDN   A Regular Event with the same event date and time
 			// 									as a forthcoming event is ignored. This ensures that Xmas and Easter services
 			// 									override regular services causing the regular sevices not to be displayed.
@@ -439,79 +388,6 @@ Class Calendar
 		return $week;
 	}
 
-
-
-	// $oDate - must be a datetime object
-	protected function getEventStr($oDate)
-	{
-		$str = "";
-		$dow = strtoupper($oDate->format("l")); // Day of Week MONDAY, TUESDAY etc
-		$wom = weekOfMonth($oDate);  // Week of month - 1,2 etc
-
-		$qry = " SELECT id, parentid, eventsource, eventdate, eventtime, eventname, " .
-					 "        DATE_FORMAT(eventtime, '%l:%i %p') as disptime, linkurl " . 
-		       " FROM calendar " . 
-		       " WHERE eventdate = '" . date_format($oDate, 'Y-m-d') . "' " .
-		       " ORDER BY eventtime";  
-	
-		if (! ($res = $this->oMysql->query($qry)))
-		{
-			die("<h1>SELECT on calendar table failed</h1>");
-		}
-
-		while ($row = $res->fetch_assoc()) 
-		{
-			$id = "id" . $row['id'];
-			if ($row['eventsource'] == 'FORTHCOMING')
-			{
-				print("<div id=\"" . $id . "\" class=\"tip\">" . "Click to see event details" . "</div>\n");
-				if (! empty($row['linkurl']) )
-				{
-					$str .= "<a href='" . $row['linkurl'];
-					$str .= "#articleid" . $row['parentid'] . "' ";	// internal link on target page
-				}
-				else
-				{
-					$str .= "<a href='" . "index.php?displaypage=dispforthevent.php";
-					$str .= "#articleid" . $row['parentid'] . "' ";	// internal link on target page
-				}
-
-				$str .= " onmouseout='popUp(event,\"" . $id . "\")'" . 
-								" onmouseover='popUp(event,\"" . $id . "\")'  > \n"; // onclick='return false'
-			} else if ($row['eventsource'] == 'REGULAR')
-			{ 
-				if (! empty($row['linkurl']) )
-				{
-					print("<div id=\"" . $id . "\" class=\"tip\">" . "Click to see event details" . "</div>\n");
-					$str .= "<a href='" . $row['linkurl'] . "' ";
-					$str .= " onmouseout='popUp(event,\"" . $id . "\")'" . 
-									" onmouseover='popUp(event,\"" . $id . "\")' > \n"; // onclick='return false'
-				}
-			}
-
-			$str .= "<h4>\n";
-      //  FC_HIDE_TIME (11:11) is a magic time that means do not display time
-			if (substr($row['eventtime'],0,5) !=  FC_HIDE_TIME ) 
-			{
-				//$str .= substr($row['eventtime'],0,5) . "<br />\n";
-				$str .= $row['disptime'] . "<br />\n";
-			}
-			$str .= $row['eventname'] . "<br />\n";
-			$str .= "</h4>\n";
-			if ($row['eventsource'] == 'FORTHCOMING')
-			{
-				$str  .= "</a>\n";
-			}	else if ($row['eventsource'] == 'REGULAR')
-			{ // don't use a tool tip for regular events
-				//$str  .= "</a>\n";
-			}
-		}
-
-		$res->free_result();
-
-		return $str;
-	}
-
 	/**********************
 	Expects two DateTime objects - returns true if $oDateCurrent <= $oDateEnd else returns false
 	******************************/
@@ -569,18 +445,6 @@ Class Calendar
 		$this->endOfCalendarDayOfWeek_int = $aDateInfo['wday'];
 		$this->endOfCalendarDayOfWeek_str = $aDateInfo['weekday'];			
 		
-		/**************************
-		$qry = " delete from calendar " . 
-					 " where " . 
-					 " eventdate < '" . $oDateCalStart->format("Y-m-d") . "' " .
-					 " or " . 
-					 " eventdate > '" . $oDateCalEnd->format("Y-m-d") . "' ";
-		
-		if (! $this->oMysql->query($qry))
-		{
-			die("DELETE from calendar table failed: [" . $this->oMysql->error . "] qry [$qry]");
-		}
-		***************************************/
 		$qry = ' SELECT ' . Calendar::SELECT_COLUMNS .
 					 ' FROM calendar ' . 
 					 ' ORDER BY eventdate, eventtime';
@@ -608,18 +472,6 @@ Class Calendar
 			}
 		
 		}
-
-		/************
-		foreach ($this->aWeeks as $oWeek)
-		{
-			foreach ($oWeek->aDays as $aDay)
-			{
-				var_dump($aDay);
-				echo '<br><br>';				
-			}
-
-		}
-		******************/
 		
 		$oRes->free_result();
 	}

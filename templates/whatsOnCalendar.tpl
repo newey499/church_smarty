@@ -109,7 +109,13 @@ filename: whatsOnCalendar.tpl
 					<br>
 					{$aEvent.eventtime|date_format:"%I:%M %p"}				
 					<br>
-					<a href="{$aEvent.linkurl}">{$aEvent.eventname}</a>
+					{if $calendar_class == "calendar"}
+						<a href="{$aEvent.linkurl}">{$aEvent.eventname}</a>
+					{else}
+						<b>
+						{$aEvent.eventname}							
+						</b>
+					{/if}
 					<br>					
 				{/foreach}
 					
