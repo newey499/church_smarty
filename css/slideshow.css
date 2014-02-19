@@ -12,6 +12,9 @@
 	position:relative;
 	width:350px;
 	height:300px;
+	float:right;
+	padding-left:1em;
+	padding-bottom:1em;
 }
 
 #slideshow DIV 

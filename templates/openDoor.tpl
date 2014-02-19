@@ -21,13 +21,11 @@ filename: openDoor.tpl
 <p>
 
 A completely Optional Service. Just enjoy the coffee, snacks and conversation.
-<br />
+<br>
 
+<br>
 
-<div style="float:right; margin-left:1em; margin-top:1em;">
-
-
-<div id="slideshow" style="padding-left:1em; padding-bottom:1em;">
+<div id="slideshow">
 
     <div class="active">
         <img src="images/slide/opendoor/pancake001.jpg" alt="pancake001.jpg" />
@@ -94,8 +92,6 @@ A completely Optional Service. Just enjoy the coffee, snacks and conversation.
     <div>
         <img src="images/slide/straw/straw010.jpg" alt="straw010.jpg" />
     </div>
-
-</div>
 
 </div>
 

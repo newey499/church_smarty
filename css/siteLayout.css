@@ -22,9 +22,8 @@ Layout of site only.
 
 #body
 {
-
 	min-height:400px;
-
+	font-size: 1em;	
 }
 
 
@@ -86,7 +85,6 @@ Layout of site only.
 	/*margin-top: 40px; */  /* Needs to match with height of #topsection defined above */
 	margin-left: -100%;
 	padding-top: 10px; 
-	font-size: 0.8em;
 }
 
 #rightcolumn

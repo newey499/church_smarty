@@ -55,6 +55,7 @@ filename: whatsOnCalendar.tpl
 
 {create_calendar_table month=$month year=$year out='oCalendar'}
 
+{* ****************************************
 <h4>
 	Month [{$oCalendar->month}]
 	<br>
@@ -77,6 +78,7 @@ filename: whatsOnCalendar.tpl
 	endOfCalendarDayOfWeek_str [{$oCalendar->endOfCalendarDayOfWeek_str}]	
 	<br>	
 </h4>
+********************************************** *}
 
 <p>
 
@@ -88,14 +90,26 @@ filename: whatsOnCalendar.tpl
 
 		<tr class="calendar">
 		{foreach $oCalendarWeek->aDays as $oCalendarDay}
-			<td class="calendar">
-				{$oCalendarDay->date_unix|date_format:"%d/%m/%Y"}
+			
+			{if ($oCalendarDay->day_in_requested_month)}
+				{assign var="calendar_class" value="calendar"}
+			{else}
+				{assign var="calendar_class" value="calendardim"}				
+			{/if}
+			
+			<td class="{$calendar_class}">
+				<div style="text-align: center;">
+					<b>
+					{$oCalendarDay->date_unix|date_format:"%d/%m/%Y"}
+					</b>
+					<hr>
+				</div>
 				<br>
 				{foreach $oCalendarDay->aEvents as $aEvent}
 					<br>
 					{$aEvent.eventtime|date_format:"%I:%M %p"}				
 					<br>
-					{$aEvent.eventname}
+					<a href="{$aEvent.linkurl}">{$aEvent.eventname}</a>
 					<br>					
 				{/foreach}
 					

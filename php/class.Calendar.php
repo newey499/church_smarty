@@ -38,7 +38,7 @@ Class CalendarDay
 		$this->date_str = $oDate->format("Y-m-d");
 		$this->date_unix = $oDate->getTimestamp();
 		
-		$this->day_in_requested_month = ($oStartOfMonth->format("m") == $oDate->format("m") );
+		$this->day_in_requested_month = ($oStartOfMonth->format("m") == $oDate->format("m"));
 		
 		$this->month_str = $oStartOfMonth->format("m");
 		$this->month_int = intval($this->month_str);
@@ -609,6 +609,7 @@ Class Calendar
 		
 		}
 
+		/************
 		foreach ($this->aWeeks as $oWeek)
 		{
 			foreach ($oWeek->aDays as $aDay)
@@ -618,6 +619,7 @@ Class Calendar
 			}
 
 		}
+		******************/
 		
 		$oRes->free_result();
 	}

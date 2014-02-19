@@ -11,14 +11,12 @@ site wide CSS detail configuration
 #christchurchtitle
 {
   font-weight: bold;
-	/* font-size:30px; */
 	font-size:2em;
 }
 
 #christchurchaddress
 {
   font-weight: bold;
-	/* font-size:15px; */
 	font-size:1.2em
 }
 
@@ -26,7 +24,6 @@ site wide CSS detail configuration
 {
 	color: red;
 	/* font-weight: bold; */
-  /* font-size: 12px; */
   font-size: 0.7em;
 	/* font-style: italic; */
 	/* font-style: oblique; */
@@ -97,7 +94,6 @@ img.churchcenterimg
 {
 	color: red;
 	font-weight: bold;
-  /* font-size: 12px; */
   font-size: 0.7em;
 	/* font-style: italic; */
 	font-style: oblique;
@@ -242,6 +238,7 @@ CSS for calendar display
 {
   border: blue 2px solid;
 	vertical-align:top;
+	font-size: 1em;
 }
 th.calendar
 {
@@ -265,3 +262,5 @@ td.calendardim
 	background:silver;
 	padding:2px;
 }
+
+
