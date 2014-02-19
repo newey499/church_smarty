@@ -93,6 +93,8 @@ filename: whatsOnCalendar.tpl
 				<br>
 				{foreach $oCalendarDay->aEvents as $aEvent}
 					<br>
+					{$aEvent.eventtime|date_format:"%I:%M %p"}				
+					<br>
 					{$aEvent.eventname}
 					<br>					
 				{/foreach}

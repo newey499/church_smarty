@@ -1,3 +1,9 @@
+-- 19-02-2014 CDN filename : bobiles_church_smarty_backup_001.sql
+--								backup after regularevents.linkurl column fixed.
+--
+--
+--
+-- ------------------------------------------------------
 CREATE DATABASE  IF NOT EXISTS `bobiles_church_smarty` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `bobiles_church_smarty`;
 -- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
