@@ -5,18 +5,16 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
-<p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
+<br>
 
-
-
+<h2>
+  The Shocking Truth about the Church
+</h2>
 
 <p>
-  <b>The Shocking Truth about the Church</b>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
+
 
 
 <p>
@@ -353,19 +351,9 @@ it ages ago. But by the grace of God it continues so
 let us keep our eyes on Jesus.
 </p>
 
-
-
-
-
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
 
 <!-- ========================================================================== -->
 <!--                              End Text Section                              --> 

@@ -4,20 +4,20 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
-<p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
 
+<br>
 
-
+<h2>
+  Why Do We Need the Gospel Romans 1:16
+</h2>
 
 
 
 <p>
-  <b>Why Do We Need the Gospel Romans 1:16</b>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
+
+
 
 <p>
 	<b>Can books change the World?</b>
@@ -321,15 +321,8 @@ Jesus came to save the lost and change the found. Are you being
 changed?
 </p>
 
-
-
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 

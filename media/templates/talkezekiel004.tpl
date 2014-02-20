@@ -5,23 +5,20 @@
 <div style="margin-left:2em; margin-right:2em;">
 
 
-<!-- Top Banner for site -->
-<?php
-	include_once("topbanner.php");
-?>
-
 <br />
 
+<h2>
+Taking God For Granted
+</h2>
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
+
 
 <p>
 <h4>
-?Taking God For Granted
+
 <br />
 Ezekiel 9-11
 </h4>
@@ -187,15 +184,8 @@ To close  I am going read out the 10 Commandments in a modern version to command
 Simon Falshaw July 2009
 
 
-
-
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 

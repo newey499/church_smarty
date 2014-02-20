@@ -4,18 +4,20 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
+<br>
+
+<h2>
+  Things could not get worse
+</h2>
+
+
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 
-
-
-
 <p>
-  <b>Things could not get worse</b>
+
   <br />
   <br />
   <b>What Is Our Problem ? &nbsp;&nbsp;   Romans 1: 18-32</b>
@@ -417,18 +419,9 @@ the one who saves us and acknowledge him as Lord.
 ?>
 </p>
 
-
-
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
-
 <!-- ========================================================================== -->
 <!--                              End Text Section                              --> 
 <!-- ========================================================================== -->

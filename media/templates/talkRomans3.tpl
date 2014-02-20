@@ -5,17 +5,14 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
-<p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
+<br>
 
-
-
+<h2>
+  Why We Are All In The Same Boat - Romans 2
+</h2>
 
 <p>
-  <h4>Why We Are All In The Same Boat - Romans 2</h4>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 
@@ -361,15 +358,9 @@ That is the hope that is for all of us. Let us look
 less at ourselves and more of Jesus. 
 </p>
 
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
 
 <!-- ========================================================================== -->
 <!--                              End Text Section                              --> 

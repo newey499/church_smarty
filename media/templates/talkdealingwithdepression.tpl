@@ -5,22 +5,19 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
+<br>
+
+<h2>
+Dealing with Depression  Psalm 42 - 43.
+</h2>
+
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
-
-
-
 <h4>
-Dealing with Depression  Psalm 42 - 43.
-</h4>
-
-<b>
 Sermon Preached by Simon Falshaw at Christ Church,  Lye  June 2008.
-</b>
+</h4>
 
 <h4>
 Introduction
@@ -161,16 +158,9 @@ Misjudged: when Jesus died on the Cross he died as an innocent man for crimes he
 I have come to rescue you. As Jesus has come to where we are he can take us to where he is. He was cut off because he bore our sins. He was overwhelmed by sin so that we might know forgiveness and joy. He was misjudged and condemned so that through his blood we might be declared innocent.
 </p>
 
-
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
 
 <!-- ========================================================================== -->
 <!--                              End Text Section                              --> 

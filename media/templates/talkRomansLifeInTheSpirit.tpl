@@ -8,15 +8,18 @@
 
 <br />
 
+<h2>
+Life in the Spirit
+</h2>
+
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 <!-- ========================================================================== -->
 <!--                              Start Content Section                         --> 
 <!-- ========================================================================== -->
+<br>
 
 <h4>
 A Sermon given by Rev Dr Chris Kent at both Morning Services at Christ Church Lye on Sunday 9th May 2010
@@ -270,11 +273,10 @@ of chapter 8…
 
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 <!-- ========================================================================== -->
 <!--                              End Text Section                            --> 
 <!-- ========================================================================== -->
+</div>

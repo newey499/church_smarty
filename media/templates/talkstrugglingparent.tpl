@@ -1,15 +1,22 @@
 
+<!-- ========================================================================== -->
+<!--                              Start Text Section                            --> 
+<!-- ========================================================================== -->
+<div style="margin-left:2em; margin-right:2em;">
+
+<br>
+
+
+<h2>
+What Would Jesus Say to a Struggling Parent ?
+</h2>
+
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 <p>
-<h4>
-What Would Jesus Say to a Struggling Parent ?
-</h4>
 <br />
 <b>
 Luke 7:11-17
@@ -119,9 +126,13 @@ I wonder how many of you sit here today because someone in your family parent, g
 
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
+
+
+<!-- ========================================================================== -->
+<!--                              End Text Section                              --> 
+<!-- ========================================================================== -->
+</div>
 
 

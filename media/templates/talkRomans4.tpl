@@ -4,17 +4,14 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
-<p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
+<br>
+
+<h2>Justified By Faith - Romans  4 </h2>
 
 
 <p>
-  <h4>Justified By Faith - Romans  4 </h4>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
 
 <p>
 In 2006 a group of children travelled from Britain to
@@ -318,13 +315,9 @@ put right with God
 </p>
 
 
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
 
 <!-- ========================================================================== -->
 <!--                              End Text Section                              --> 

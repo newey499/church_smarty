@@ -1,15 +1,23 @@
 
+<!-- ========================================================================== -->
+<!--                              Start Text Section                            --> 
+<!-- ========================================================================== -->
+<div style="margin-left:2em; margin-right:2em;">
+
+<br>
+
+<h2>
+What would Jesus say to a Vicar?
+</h2>
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 <p>
-<h4>
-What would Jesus say to a Vicar?
-</h4>
+
+
+
 <br />
 <b>
 John 3: 1-21
@@ -140,9 +148,12 @@ What would Jesus say to a vicar? You must be born again. If you don't put the cr
 
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
+
+<!-- ========================================================================== -->
+<!--                              End Text Section                            --> 
+<!-- ========================================================================== -->
+</div>
 
 

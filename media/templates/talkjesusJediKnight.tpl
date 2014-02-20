@@ -4,20 +4,18 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
+<br>
+
+<h2>
+What Would Jesus Say To A JEDI Knight           
+</h2>
+
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 
-
-
-
-
-<h4>
-What Would Jesus Say To A JEDI Knight?           
-</h4>
+<p>
 <b>
 Matthew 16: 21-28
 </b>
@@ -25,6 +23,8 @@ Matthew 16: 21-28
 <b>
 Sermon preached at Christ Church Lye - June 2003     by Reverend Simon Falshaw
 </b>
+</p>
+
 
 <p>
 The Star Wars series of films have been consistently popular. I can remember as a student going to see The Empire Strikes Back when it was first released. Myself and my friends thought it was so brilliant and because it was after exams and we had nothing else to do we all went back a  the following day seeing it a second time. The film has really captured people's imagination in a remarkably deep way. In 1999 when the first of the prequel cycle of films was released I read of people who had been waiting with religious intensity for the last twenty years for this film to be released. For them as a major religious experience.
@@ -120,15 +120,8 @@ That in the end is the question that Jesus asks us all? Will we stand with him o
  
 
 
-
-
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 

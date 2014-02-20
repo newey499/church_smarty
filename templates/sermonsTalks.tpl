@@ -13,8 +13,6 @@ filename: sermonsTalks.tpl
 
 <br>
 
-{return_to_referrer prompt="Back"}
-
 <p>
 	{include file="templates/common/mp3Talks.tpl"}
 </p>
@@ -24,14 +22,4 @@ filename: sermonsTalks.tpl
 <p>
 	{include file="templates/common/textTalks.tpl"}
 </p>
-
-
-
-
-
-
-
-
-
-
 

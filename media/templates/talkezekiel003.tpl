@@ -5,25 +5,22 @@
 <div style="margin-left:2em; margin-right:2em;">
 
 
-<!-- Top Banner for site -->
-<?php
-	include_once("topbanner.php");
-?>
 
 <br />
 
+<h2>
+Doom is no Joke
+</h2>
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
+{return_to_referrer prompt="Return to Sermons and Talks"}
+</p
 
 
 
 
 <h4>
-?Doom is no Joke
+
 <br />
 Ezekiel 7 - 8
 </h4>
@@ -225,14 +222,9 @@ Simon Falshaw Christ Church Lye June 2009
 </p>
 
 
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
+{return_to_referrer prompt="Return to Sermons and Talks"}
+</p
 
 
 <!-- ========================================================================== -->

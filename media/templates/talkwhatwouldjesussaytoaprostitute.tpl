@@ -4,10 +4,13 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
+<br>
+<h2>
+What Would Jesus have said to a  Prostitute
+</h2>
+
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 
@@ -17,7 +20,7 @@
 
 <p>
 <h4>
-What Would Jesus have said to a  Prostitute
+
 
 <br />
 Luke 7: 36-50
@@ -156,17 +159,12 @@ So what would Jesus say to a prostitute? I think the words at the end of this st
 
 
 
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
-
 <!-- ========================================================================== -->
-<!--                              End Text Section                              --> 
+<!--                              End Text Section                            --> 
 <!-- ========================================================================== -->
-
+</div>
 

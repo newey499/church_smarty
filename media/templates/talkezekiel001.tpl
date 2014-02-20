@@ -5,25 +5,18 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
+<br>
+<h2>
+A Birthday to Remember
+</h2>
+
+{return_to_referrer prompt="Return to Sermons and Talks"}
 
 
-<!-- Top Banner for site -->
-<?php
-	include_once("topbanner.php");
-?>
-
-<br />
-
-
-<p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
 
 <p>
 <h4>
-?A Birthday to Remember 
+ 
 <br />
 Ezekiel 1:1-3:15
 <br />
@@ -216,16 +209,9 @@ And for us as we look at all the little communities of which we are part - are w
 </p>
 
 
-<p>
-Simon Falshaw 6/09
-</p>
-
-
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 <!-- ========================================================================== -->

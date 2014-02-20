@@ -18,79 +18,12 @@ $oSmarty->clearCache('index.tpl');
 $oSmarty->assign('app_name', "church_smarty");
 $oSmarty->assign('lastUpdatedDateTime', getLastUpdateTimestamp());
 
-/**************
-if (isset($_GET['id']))
-{
-	$oSmarty->assign('primaryKeyId', $_GET['id']);	
-}
-else 
-{
-	$oSmarty->assign('primaryKeyId', "Not Set");
-}
-****************/
 $oController = new Controller($_GET, $oSmarty);
 $oController->getCentreContent();
 
-if (isset($_GET['id']) && is_int((int) $_GET['id']))
-{
-	$id = $_GET['id'];
-}
-else 
-{
-	$id = "1";
-}
-$content = "Content not found for id [$id]";
-
-//print("<h1>id [" . $id . "]</h1>");
-$oSmarty->assign('primary_key_menu_id', $id);
-
-$row = Menu::getMenuItemContent($id);
-
-/*******************
- * 
- * Hierarchy is:
- *  1) If we get here the the content is not an external website.
- *	2) If menus.smartytemplate is not empty read the contents of the file 
- *     and use as content.
- *  3) If menus.smartytemplate is empty read the contents of the menus.content column 
- *     and use as content.
- */
-
-if (empty($row['smartytemplate']))
-{
-	$content = $row['content'];	
-}
-else 
-{
-	if (isSmartyTemplateFile($row['smartytemplate']))
-	{
-			if (! file_exists($row['smartytemplate']))
-			{
-				$content = "<h4>Smarty template file [" . $row['smartytemplate'] . "] not found.</h4>";	
-			}
-			else 
-			{
-				$content = file_get_contents($row['smartytemplate']);
-				if ($content === false)
-				{
-					$content = "<h4>Smarty template file [" . $row['smartytemplate'] . "] not found.</h4>";		
-				}	
-			}
-							
-	}
-	
-}
-
-$oSmarty->assign('centreColumnContent', $content);		
-
-$oSmarty->assign('pageTitle', $row['prompt']);
-//$oSmarty->assign('calling_URL', 'index.php?id=' . $id);
-//require_once('php/header.php');
 
 // ========= Start Smarty generated content =========
 $oSmarty->display('index.tpl');
 // ========= End Smarty generated content   =========
-
-//require_once('php/footer.php');
 
 ?>

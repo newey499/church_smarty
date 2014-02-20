@@ -5,19 +5,20 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
+<br>
+
+<h2>
+	Should we be Bothered about Global Warming
+</h2>	
+
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
-
-
 
 
 <p>
 	<h4>
-	Should we be Bothered about Global Warming?
+
 	<br />
 	Christ Church Lye - July 2007.
 	</h4>
@@ -178,14 +179,8 @@ Our World is scared by sin but one day it will be recreated. Paul in the book of
 So why and how do we act at the moment? We care for the environment now this is God's command. We do that as a great big signpost pointing to the future. One day Jesus will return and restore Creation to what it once was.
 </p>
 
-
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 

@@ -4,17 +4,13 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
+<br>
+
+<h2>When Did Paul Live</h2>
+
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
-
-
-
-
-<h4>When Did Paul Live?</h4>
 
 <p>
 When did the Apostle Paul live? The events of the Acts of the Apostles occured a long time ago and allthough they are history they lack one feature that we assume is an essential part of history. There are no dates. This doesn't mean that they are any less historical.  Luke sometimes refers to contemporary events known to his readers (e.g  Acts 12:28, 18:2). He also mentions kings, queens and other officials that we know about from paralell historical records. 
@@ -41,13 +37,8 @@ The Apostle Peter wrote to the Christians living in the pagan culture of modern 
 </p>
 
 
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 

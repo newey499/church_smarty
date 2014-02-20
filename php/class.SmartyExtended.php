@@ -31,7 +31,9 @@ class SmartyExtended extends Smarty {
         // Call the parent constructor first
         parent::__construct();
 
-        $this->setTemplateDir('./templates/');
+        $this->addTemplateDir('./templates/');
+				$this->addTemplateDir('./media/templates'); // Dir contains text sermon templates
+					
         $this->setCompileDir('./templates_c/');
         $this->setConfigDir('./configs/');
         $this->setCacheDir('./cache/');

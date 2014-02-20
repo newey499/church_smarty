@@ -6,12 +6,16 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
-<p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
 
+<br>
+
+<h2>
+Freed for Obedience
+</h2>
+
+<p>
+{return_to_referrer prompt="Return to Sermons and Talks"}
+</p>
 
 
 <p>
@@ -82,14 +86,9 @@ John 8: 31 - 36
 (13) God give us grace to stick with our choice to live in obedience to Jesus, and may the Holy Spirit give us the power to live this way.
 </p>
 
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
 
 <!-- ========================================================================== -->
 <!--                              End Text Section                              --> 

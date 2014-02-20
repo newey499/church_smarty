@@ -4,16 +4,16 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
+<br>
+
+
+
+
+<h2>When Did Jesus Live?</h2>
+
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
-
-
-
-<h4>When Did Jesus Live?</h4>
 
 <p>
 When did Jesus live? This may seem like a question too simple to be worth asking. But many people who are not Christains and know little or nothing about Christainity assume that the stories we have about Jesus are largely myths. We assume that since our system of dating the years begins with Jesus birth he must have been  born in 0AD. However the system for dating  was started many years after the birth of Jesus  by a Latin Monk Dionysius Exiguus in 531 AD.  He tried to work out the year of Jesus' birth but lacking all the information we now have, allmost certainly got it wrong.  We can tie in the major events of Jesus life with other historical sources and the Gospels themeslves give us a great deal of information. 
@@ -45,12 +45,8 @@ So is the Gospel history or myth?  The question is not new. The early church liv
 
 
 
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 

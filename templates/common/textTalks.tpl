@@ -22,20 +22,20 @@ filename: textTalks.tpl
       <ul>
 
         <li>
-           < href="media/templates/talkezekiel001.tpl">A Birthday to Remember</a>
+           <a href="index.php?tpl=media/templates/talkezekiel001.tpl">A Birthday to Remember</a>
         </li>
 
         <li>
-           < href="media/templates/talkezekiel002.tpl">
+           <a href="index.php?tpl=media/templates/talkezekiel002.tpl">
            Gods Judgment - A Message that Needs to be Heard</a>
         </li>
 
         <li>
-           < href="media/templates/talkezekiel003.tpl">Doom is no Joke</a>
+           <a href="index.php?tpl=media/templates/talkezekiel003.tpl">Doom is no Joke</a>
         </li>
 
         <li>
-           < href="media/templates/talkezekiel004.tpl">Taking God for Granted</a>
+           <a href="index.php?tpl=media/templates/talkezekiel004.tpl">Taking God for Granted</a>
         </li>
 
       </ul>
@@ -51,27 +51,27 @@ filename: textTalks.tpl
      <ul>
 
       <li>
-      < href="media/templates/talkJesusWhenDidHeLive.tpl">Jesus - When did he live</a>
+      <a href="index.php?tpl=media/templates/talkJesusWhenDidHeLive.tpl">Jesus - When did he live</a>
       </li>
 
       <li> 
-      < href="media/templates/talkavicar.tpl">
+      <a href="index.php?tpl=media/templates/talkavicar.tpl">
        What Would Jesus say to a Vicar</a>
       </li>
 
       <li> 
-      < href="media/templates/talkstrugglingparent.tpl">
+      <a href="index.php?tpl=media/templates/talkstrugglingparent.tpl">
          What Would Jesus say to a Struggling Parent</a>
       </li>
 
       <li> 
-      < href="media/templates/talkjesusJediKnight.tpl">
+      <a href="index.php?tpl=media/templates/talkjesusJediKnight.tpl">
             What Would Jesus Say To A JEDI Knight</a>
       </li>
 
 
       <li> 
-      < href="media/templates/talkwhatwouldjesussaytoaprostitute.tpl">
+      <a href="index.php?tpl=media/templates/talkwhatwouldjesussaytoaprostitute.tpl">
             What Would Jesus Say To A Prostitute</a>
       </li>
 
@@ -89,28 +89,28 @@ filename: textTalks.tpl
 
 
       <li> 
-      < href="media/templates/talkRomansLifeInTheSpirit.tpl">Life in the Spirit</a>
+      <a href="index.php?tpl=media/templates/talkRomansLifeInTheSpirit.tpl">Life in the Spirit</a>
       </li>
 
 
       <li> 
-      < href="media/templates/talkRomans16.6.tpl">Do We need the Gospel ?</a>
+      <a href="index.php?tpl=media/templates/talkRomans16.6.tpl">Do We need the Gospel ?</a>
       </li>
 
       <li>
-      < href="media/templates/talkRomans18-32.tpl">Things could not get worse</a>
+      <a href="index.php?tpl=media/templates/talkRomans18-32.tpl">Things could not get worse</a>
       </li>
 
       <li>
-      < href="media/templates/talkRomans3.tpl">Why We Are All In The Same Boat</a>
+      <a href="index.php?tpl=media/templates/talkRomans3.tpl">Why We Are All In The Same Boat</a>
       </li>
 
       <li>
-      < href="media/templates/talkRomans4.tpl">Justified By Faith</a>
+      <a href="index.php?tpl=media/templates/talkRomans4.tpl">Justified By Faith</a>
       </li>
 
       <li>
-      < href="media/templates/talkfreedforobedience.tpl">Freed for Obedience</a>
+      <a href="index.php?tpl=media/templates/talkfreedforobedience.tpl">Freed for Obedience</a>
       </li>
 
      </ul>
@@ -128,15 +128,15 @@ filename: textTalks.tpl
       <ul>
 
        <li>
-        < href="media/templates/talkDaVinci001.tpl">Invented in a Pub ?</a>
+        <a href="index.php?tpl=media/templates/talkDaVinci001.tpl">Invented in a Pub ?</a>
        </li>
 
        <li>
-        < href="media/templates/talkDaVinci002.tpl">The Real Jesus</a>
+        <a href="index.php?tpl=media/templates/talkDaVinci002.tpl">The Real Jesus</a>
        </li>
 
        <li>
-        < href="media/templates/talkDaVinci003.tpl">The Shocking Truth about the Church</a>
+        <a href="index.php?tpl=media/templates/talkDaVinci003.tpl">The Shocking Truth about the Church</a>
        </li>
 
       </ul>
@@ -152,29 +152,29 @@ filename: textTalks.tpl
       <ul>
 
         <li> 
-        < href="media/templates/talkdealingwithdepression.tpl">
+        <a href="index.php?tpl=media/templates/talkdealingwithdepression.tpl">
               Dealing with Depression</a>
         </li>
 
         <li> 
-        < href="media/templates/talkglobalWarming001.tpl">
+        <a href="index.php?tpl=media/templates/talkglobalWarming001.tpl">
                 Should we be bothered about Global Warming  ?</a>
         </li>
 
         <li>
-        < href="media/templates/talkisreligiondangerous.tpl">Is Religion Dangerous</a>
+        <a href="index.php?tpl=media/templates/talkisreligiondangerous.tpl">Is Religion Dangerous</a>
         </li>
 
         <li>
-        < href="media/templates/talkPaulWhenDidHeLive.tpl">Paul - When did he live</a>
+        <a href="index.php?tpl=media/templates/talkPaulWhenDidHeLive.tpl">Paul - When did he live</a>
         </li>
 
         <li>
-        < href="media/templates/talkDoesReligionPromoteWar.tpl">Does religion promote War</a>
+        <a href="index.php?tpl=media/templates/talkDoesReligionPromoteWar.tpl">Does religion promote War</a>
         </li>
 
         <li>
-        < href="media/templates/talkthefall.tpl">The Fall</a>
+        <a href="index.php?tpl=media/templates/talkthefall.tpl">The Fall</a>
         </li>
 
       </ul>

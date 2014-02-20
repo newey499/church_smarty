@@ -6,20 +6,15 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
-<p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
+<br>
 
-
-
-
+<h2>
+  The Da Vinci Code - The Real Jesus
+</h2>
 
 <p>
-  <b>The Da Vinci Code - The Real Jesus</b>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
 
 <p>
  <b>Who is Jesus?</b>
@@ -387,19 +382,9 @@ for us it means laying our lives before him and saying
 Jesus you are Lord.
 </p>
  
-
-
-
-
-
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
-
 
 <!-- ========================================================================== -->
 <!--                              End Text Section                              --> 

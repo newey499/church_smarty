@@ -1,23 +1,22 @@
 
+<!-- ========================================================================== -->
+<!--                              Start Text Section                            --> 
+<!-- ========================================================================== -->
+<div style="margin-left:2em; margin-right:2em;">
+
 <br />
 
+<h2>
+The Fall
+</h2>
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
-
-<!-- ========================================================================== -->
-<!--                              Start Content Section                         --> 
-<!-- ========================================================================== -->
-
-
-<h4>
-?The Fall. by Jim Ford.
-</h4>
-
+<p>
+Jim Ford
+</p>
 
 <p>
 I parked the car opposite the Three Sisters in Glen Coe. It was a beautiful day, the sky was blue with a few white fluffy clouds. I walked up and over Bidean nam Bian and along the ridge down to the beallach aiming for the  summit of Stob Coire Sgreamhach. (bealach - low point or saddle between summits). The walking had been tough and in parts I was definitely out of my comfort zone. The snow was extensive over about 2000 feet but at this time of year, it was April, it was very soft, not slushy, but not crisp and icy as it is in mid-winter. I was told later that snow on mountains can be particularly hazardous in spring, a fact I learned the hard way! Snow in winter allows you to dig in with your crampons and ice axe, and secure a firm hold, so that slopes can be safely traversed or ascended and descended.
@@ -67,23 +66,14 @@ do with God. I cried out to Him in my time of desperation and He responded and s
 As I plodded from the mountain it felt as though God was guiding me to safety. As I mentioned earlier, I felt at peace. This was, perhaps a feeling of relief at surviving the fall but was mixed with a sense of divine intervention, of God’s presence. A nurse at the hospital observed that I had rescued myself from the mountain, but I believe  that I was rescued by God! 
 </p>
      
-
-
-
-<!-- ========================================================================== -->
-<!--                                End Content Section                         --> 
-<!-- ========================================================================== -->
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
+
 
 
 <!-- ========================================================================== -->
 <!--                              End Text Section                              --> 
 <!-- ========================================================================== -->
-
+</div>
 

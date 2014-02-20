@@ -5,25 +5,20 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
-
-<!-- Top Banner for site -->
-<?php
-	include_once("topbanner.php");
-?>
-
 <br />
 
+<h2>
+God's Judgment - A Message that Needs to be Heard
+</h2>
 
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
+{return_to_referrer prompt="Return to Sermons and Talks"}
+</p
 
 
 <p>
 <b>
-?God's Judgment - A Message that Needs to be Heard
+
 <br />                                      
 Ezekiel 3:16-6:14
 <br />
@@ -221,13 +216,9 @@ Simon Falshaw June 2009
 </p>
 
 
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
-
+{return_to_referrer prompt="Return to Sermons and Talks"}
+</p
 
 <!-- ========================================================================== -->
 <!--                              End Text Section                              --> 

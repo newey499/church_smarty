@@ -5,20 +5,20 @@
 <!-- ========================================================================== -->
 <div style="margin-left:2em; margin-right:2em;">
 
-<p>
-<?php
-	backToSermonsTalksPage();
-?>
-</p>
+<br>
 
-
-
+<h2>
+Does religion promote War
+</h2>
 
   
 <h4>
 But aren't most wars caused by religion? 
 </h4>
 
+<p>
+{return_to_referrer prompt="Return to Sermons and Talks"}
+</p>
 
 <p>
 A common objection to the Christian faith that is sometimes used by people is that religion is a cause of war and violence. It is true that sometimes religion has been a direct motivation for wars. The crusades are a well known example. It has also played an indirect role in promoting conflict e.g  the English Civil War. People have done terrible things, such as the Inquisition in the name of God. However there are many wars that have not had a direct religious cause.
@@ -50,12 +50,8 @@ The Apostle Peter wrote to the Christians living in the pagan culture of modern 
 
 
 
-
-
 <p>
-<?php
-	backToSermonsTalksPage();
-?>
+{return_to_referrer prompt="Return to Sermons and Talks"}
 </p>
 
 
