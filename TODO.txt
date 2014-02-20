@@ -10,3 +10,13 @@ and bobiles_church_smarty schemas
 Set up subdomains on isp server for website and admin areas
 
 GRANT Delete options to bobiles_church
+
+Remove weird characters from text sermon and talk tpl files.
+
+
+
+
+
+
+
+

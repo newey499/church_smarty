@@ -45,6 +45,26 @@ a:hover
 	color: orange;	/* mouse over a link turns it to orange */
 }
 
+/*************************
+ Standard img CSS
+********************************/
+img
+{	
+  padding: 4px;
+}
+
+/* Used for pictures of people - no width or height setting */
+img.people
+{/* scalable em size class 468px/60px banners */
+	width: 10em;
+  height: 12em;
+	margin-top:0em;
+  border: blue 2px solid;
+	border-radius: 5px;
+  padding: 4px;
+	background: white;
+}
+
 
 
 /* Used for church image - top of left hand column */
