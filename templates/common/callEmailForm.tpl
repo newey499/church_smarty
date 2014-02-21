@@ -13,6 +13,7 @@
 {assign var='emailreplyto1'	 value=$emailreplyto1|default:''}
 {assign var='emailreplyto2'	 value=$emailreplyto2|default:''}
 {assign var='emailtext'			 value=$emailtext|default:''}
+{assign var='submitbuttonprompt' value=$submitbuttonprompt|default:'Email'}
 
 <p>
 
@@ -35,7 +36,7 @@
 	<input type="hidden" name="emailreplyto2" value = "{$emailreplyto2}">
 	<input type="hidden" name="emailtext"     value = "{$emailtext}">
 
-	<input type="submit" value="Email">		
+	<input type="submit" value="{$submitbuttonprompt}">		
 	
 	</form>
 
