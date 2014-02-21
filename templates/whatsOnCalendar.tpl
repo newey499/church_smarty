@@ -15,7 +15,7 @@ filename: whatsOnCalendar.tpl
 
 <b>Select Month </b>
 
-{cbx_months months=14}
+{cbx_months months=3}
 
 <br>
 
