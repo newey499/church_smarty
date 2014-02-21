@@ -186,11 +186,10 @@ Follow @Stroyde2006
 <tr>
 
 <td>
-
+	
 <img class="people"
  src="images/people/ian-jennings001.jpg" 
- alt="Picture of Ian Jennings"
-/>
+ alt="Picture of Ian" />
 
 <br />
 Curate Ian Jennings

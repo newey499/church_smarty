@@ -180,7 +180,7 @@ class Menu extends MenuBase
 	}
 	
 	
-	// Class Function
+	// Class Function get menu content by primary key on menus 
 	public static function getMenuItemContent($id)
 	{
 		$oMysqli = MysqliExtended::getInstance();
@@ -204,9 +204,36 @@ class Menu extends MenuBase
 		
 		// Free resultset
 		$res->free_result();		
+			
+		return $result;
+	}
+	
+	// Class Function get menu content by prompt column on menus table
+	// (Case Insensitive)
+	public static function getMenuItemContentByPrompt($prompt)
+	{
+		$oMysqli = MysqliExtended::getInstance();
+		$content = "<h4>content not found for id [$id]</h4>";
+		$result  = [];
 		
-		//print("<h4>content [" . $result['content'] . "]</h4>");
+		$qry = "SELECT " . Menu::SELECT_COLUMNS . " from menus WHERE upper(prompt) = '" . strtoupper($prompt) . "'";
 		
+		$res = FALSE;
+		$res = $oMysqli->query($qry);
+		if (! $res)
+		{
+			throw new MenuException("SQL Query failed [$qry] ");
+		}
+		
+		$row = FALSE;
+		if ($row = $res->fetch_assoc())
+		{
+			$result = $row;
+		}
+		
+		// Free resultset
+		$res->free_result();		
+			
 		return $result;
 	}
 	
