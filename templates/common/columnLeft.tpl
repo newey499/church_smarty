@@ -14,7 +14,7 @@ filename: columnLeft.tpl
 
 <img	class="churchtopleft" src="images/site/church003small.jpg"
             alt="Picture of Christ Church - Click for full size picture"
-			onclick="location.href='images/orig/church003.jpg'"
+			onclick="location.href='images/site/church003.jpg'"
 			onmouseover="this.style.cursor='pointer'"
 			title="Picture of Christ Church - Click for full size picture" />
 

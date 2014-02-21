@@ -13,7 +13,7 @@ filename: weeklyServices.tpl
 <h2>{$pageTitle}</h2>
 
 <p>
-<a href="index.php?displaypage=dispforthevent.php">
+<a href="index.php?id={#primary_key_menu_forthcoming_events#}">
 Forthcoming Events</a>
 </p>
 
