@@ -76,7 +76,7 @@ The evening service is a good place to come to if you want to understand your fa
 <p>
 A short quiet service with a friendly
 
-<a href="http://www.christchurchlye.org.uk/index.php?displaypage=internal.html&rowid=25">Open Door</a>
+<a href="index.php?id={#primary_key_menu_open_door#}">Open Door</a>
 
 which provides some fun conversation, drinks and snacks.
 
