@@ -40,7 +40,7 @@ wedding planning and information
 
 <p>
 For general information 
-Dudley Metropolitan Borough Council\'s 
+Dudley Metropolitan Borough Council's 
 
 <a href=\"http://www.dudley.gov.uk/community-and-living/registration-service/\">
 Registration Service
