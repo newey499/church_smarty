@@ -20,6 +20,12 @@ Contact the Church Office for schedules.
 </p>
 
 <p>
+{include 'common/callEmailForm.tpl' 
+	emailrecipient='office@christchurchlye.org.uk'
+	submitbuttonprompt='Email Church Office'}
+</p>
+
+<p>
 <b>
 The unique church bells of Christ Church, Lye, Stourbridge. One of the lightest peals in the UK and the only ones cast in Belgium.
 </b>
@@ -338,6 +344,7 @@ Church Office  01384 - 894948
 
 </p>
 
+<br>
 
 
 

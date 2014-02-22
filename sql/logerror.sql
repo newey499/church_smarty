@@ -1,2 +1,1 @@
-select * from logerror;
-delete from logerror;
+SELECT * FROM bobiles_church_smarty.logerror;
