@@ -184,7 +184,7 @@ CREATE TABLE `logerror` (
   `trace` text,
   `exceptionstring` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,7 +193,7 @@ CREATE TABLE `logerror` (
 
 LOCK TABLES `logerror` WRITE;
 /*!40000 ALTER TABLE `logerror` DISABLE KEYS */;
-INSERT INTO `logerror` VALUES (16,'2014-02-20 12:47:41','2014-02-20 12:47:41','Template file [media/templates/talkavicar.tpl] does not exist',3,'C:/www/church_smarty/php/class.Controller.php',143,'#0 C:wwwchurch_smartyphpclass.Controller.php(47): Controller->getContentByTemplateFilename(\'media/templates...\')\n#1 C:wwwchurch_smartyindex.php(32): Controller->getCentreContent()\n#2 {main}','#0 C:wwwchurch_smartyphpclass.Controller.php(47): Controller->getContentByTemplateFilename(\'media/templates...\')\n#1 C:wwwchurch_smartyindex.php(32): Controller->getCentreContent()\n#2 {main}');
+INSERT INTO `logerror` VALUES (16,'2014-02-20 12:47:41','2014-02-20 12:47:41','Template file [media/templates/talkavicar.tpl] does not exist',3,'C:/www/church_smarty/php/class.Controller.php',143,'#0 C:wwwchurch_smartyphpclass.Controller.php(47): Controller->getContentByTemplateFilename(\'media/templates...\')\n#1 C:wwwchurch_smartyindex.php(32): Controller->getCentreContent()\n#2 {main}','#0 C:wwwchurch_smartyphpclass.Controller.php(47): Controller->getContentByTemplateFilename(\'media/templates...\')\n#1 C:wwwchurch_smartyindex.php(32): Controller->getCentreContent()\n#2 {main}'),(17,'2014-02-21 17:11:15','2014-02-21 17:11:15','Menu table primary key [{ ] is not a valid positive integer',2,'C:/www/church_smarty/php/class.Controller.php',63,'#0 C:wwwchurch_smartyindex.php(22): Controller->getCentreContent()\n#1 {main}','#0 C:wwwchurch_smartyindex.php(22): Controller->getCentreContent()\n#1 {main}'),(18,'2014-02-21 17:13:02','2014-02-21 17:13:02','Menu table primary key [{ ] is not a valid positive integer',2,'C:/www/church_smarty/php/class.Controller.php',63,'#0 C:wwwchurch_smartyindex.php(22): Controller->getCentreContent()\n#1 {main}','#0 C:wwwchurch_smartyindex.php(22): Controller->getCentreContent()\n#1 {main}');
 /*!40000 ALTER TABLE `logerror` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -555,4 +555,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-21 14:51:12
+-- Dump completed on 2014-02-22 10:39:24
