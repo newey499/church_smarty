@@ -127,6 +127,7 @@
  		<tr>
 	 		<td colspan="2">
 			<textarea name="emailtext" rows="20" cols="75" maxlength="1000"
+								placeholder="Enter the text of your Email here  - maximum length 1000 characters"
 			>{$smarty.post.emailtext}</textarea>
 			</td>
 		</tr>

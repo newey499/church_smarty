@@ -89,7 +89,11 @@ class Controller
 		$this->oSmarty->assign('primary_key_menu_id', $id);
 
 		$row = Menu::getMenuItemContent($id);
-
+		if (!$row)
+		{
+			throw new LogErrorException("row id [" . $id . "] on menus table does not exist");
+		}
+		
 		/*******************
 		 * 
 		 * Hierarchy is:
@@ -102,7 +106,12 @@ class Controller
 
 		if (empty($row['smartytemplate']))
 		{
-			$this->contentResult = $row['content'];	
+			if (empty($row['content']))
+				throw new LogErrorException("row id [" . $row['id'] . "] on menus table does contain any content");
+			else
+			{
+				$this->contentResult = $row['content'];		
+			}
 		}
 		else 
 		{

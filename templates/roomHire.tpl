@@ -51,6 +51,7 @@ Alternatively
 <p>
 {include 'common/callEmailForm.tpl' 
 	emailrecipient='office@christchurchlye.org.uk'
-	submitbuttonprompt='Email Church Office' }
+	submitbuttonprompt='Email Church Office' 
+	emailsubject='Room Hire'}
 </p>
 
