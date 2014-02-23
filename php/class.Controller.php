@@ -81,12 +81,77 @@ class Controller
 
 	}
 		
-	protected function getContentByTemplateFilename()
+	// At this point $id has been validated to be a valid +ve integer
+	protected function getContentById($id)
 	{
-		return "protected function getContentByTemplateFilename";
+		$this->contentResult = "protected function getContentById($id)";
+
+		$this->oSmarty->assign('primary_key_menu_id', $id);
+
+		$row = Menu::getMenuItemContent($id);
+
+		/*******************
+		 * 
+		 * Hierarchy is:
+		 *  1) If we get here the the content is not an external website.
+		 *	2) If menus.smartytemplate is not empty read the contents of the file 
+		 *     and use as content.
+		 *  3) If menus.smartytemplate is empty read the contents of the menus.content column 
+		 *     and use as content.
+		 */
+
+		if (empty($row['smartytemplate']))
+		{
+			$this->contentResult = $row['content'];	
+		}
+		else 
+		{
+			if (isSmartyTemplateFile($row['smartytemplate']))
+			{
+					if (! file_exists($row['smartytemplate']))
+					{
+						$this->contentResult = "<h4>Smarty template file [" . $row['smartytemplate'] . "] not found.</h4>";	
+					}
+					else 
+					{
+						$this->contentResult = file_get_contents($row['smartytemplate']);
+						if ($this->contentResult === false)
+						{
+							throw new LogErrorException("Template file [" . $filename . "] content empty or not read", 3);								
+						}	
+					}
+
+			}
+
+		}
+
+		$this->oSmarty->assign('centreColumnContent', $this->contentResult);		
+
+		$this->oSmarty->assign('pageTitle', $row['prompt']);
+		
+		return $this->contentResult;
 	}
 
+	protected function getContentByTemplateFilename($filename)
+	{	
+		if (! file_exists($filename))
+		{
+			throw new LogErrorException("Template file [$filename] does not exist", 4);	
+		}
+		else 
+		{
+			$this->contentResult = file_get_contents($filename);
+			if ($this->contentResult === false)
+			{
+				throw new LogErrorException("Template file [" . $filename . "] content empty or not read", 5);				
+			}	
+		}
+		
+		$this->oSmarty->assign('centreColumnContent', $this->contentResult);	
+		$this->oSmarty->assign('pageTitle', 'Page Title not set');		
 
+		return $this->contentResult;
+	}	
 	
 };
 
