@@ -5,11 +5,13 @@
 filename: forthcomingEvents.tpl
 
 ******************************************}
+<br>
+
 <h2>{$pageTitle}</h2>
 
 
 <h4>
-Diary of Forthcoming Events
+Ten years on the website celebrates a decade on line.
 </h4>
 
 <p>
@@ -24,7 +26,8 @@ Gloria Burrows
 
 <p>
 {include 'common/callEmailForm.tpl' 
-	emailrecipient='office@christchurchlye.org.uk'}
+	emailrecipient='office@christchurchlye.org.uk'
+	submitbuttonprompt='Email Church Office'}
 </p>
 
 
