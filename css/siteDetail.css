@@ -284,3 +284,42 @@ td.calendardim
 }
 
 
+/**************
+ 
+image thumbnails
+ 
+**********************/
+
+table.thumbnail
+{
+	margin-left: 2em;
+	width: 70%;
+	table-layout: auto;
+	margin-left:  auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	empty-cells: show;   /* draw borders around empty cells */
+}
+
+th.thumbmail
+{
+	text-align: left;
+}
+
+tr.thumbmail
+{
+}
+
+td.thumbmail
+{
+}
+
+img.thumbnail
+{
+	width: 8em;
+  height: 10em;
+  border: blue 2px solid;
+	border-radius: 5px;
+  padding: 2px;
+	background: white;
+}
