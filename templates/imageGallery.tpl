@@ -34,7 +34,34 @@ filename: imageGallery.tpl
 </table>
 
 
-<br />
+<br>
+<br>
+
+<h4>Stained Glass Windows</h4>
+
+
+<br>
+<br>
+
+<h4>War Memorial</h4>
+
+
+<br>
+<br>
+
+<h4>Church Bells</h4>
+
+<p>
+	Church Bells - Cleaned up 28/3/2012
+</p>
+
+<p>
+	Church Bells - Removal operation for restoration
+</p>
+
+
+<br>
+<br>
 
 
 
