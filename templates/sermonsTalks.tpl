@@ -11,7 +11,6 @@ filename: sermonsTalks.tpl
 
 <h2>{$pageTitle}</h2>
 
-<br>
 
 <p>
 	{include file="templates/common/mp3Talks.tpl"}

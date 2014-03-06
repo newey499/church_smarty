@@ -7,6 +7,8 @@
  * 
  */
 
+require_once('php/class.StMp3.php');
+
 class test
 {
 	public $aErrors     = NULL;	
@@ -40,7 +42,11 @@ class test
 
 print("test.php start\n\n");
 
-$oTest = new test();
+//$oTest = new test();
+$oStMp3 = new StMp3();
+$oStMp31 = new StMp3(StMp3::FETCH_RECENT);
+
+print_r($oStMp31);
 
 print("\ntest.php end");
 

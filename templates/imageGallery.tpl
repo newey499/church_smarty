@@ -10,8 +10,14 @@ filename: imageGallery.tpl
 
 <h2>{$pageTitle}</h2>
 
+<p>
+Clicking on the thumbails below will display a larger version of the picture. 
+To download the full size picture right click on the larger image in the new 
+window and select the "Save Image As" option in the menu that pops up in most browsers.	
+</p>
 
 <br>
+
 
 
 <h4>External Views</h4>

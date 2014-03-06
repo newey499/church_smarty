@@ -6,11 +6,9 @@ filename: textTalks.tpl
 
 ******************************************}
 
-<br>
-
-<h2>
+<h4>
   Sermons and Talks (Text)
-</h2>
+</h4>
 
 <ul>
 
