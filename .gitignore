@@ -53,6 +53,8 @@ Thumbs.db
 /templates_c/*
 /admin/templates_c/*
 /cache/*
+/php/utils/smarty.txt
+
 
 
 # Ignore images
