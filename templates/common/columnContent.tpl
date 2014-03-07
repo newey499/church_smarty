@@ -11,12 +11,14 @@ filename: columnContent.tpl
 <div id="contentcolumn">
 <div class="innertube">
 
+
 <div class="menutop">
 <a href="index.php" class="menuitem" >Home</a>
-</div>
+</div>		
+
 
 <div class="churchcenter" >
-
+	
 <img	class="churchcenterimg" src="images/site/churchfrontwarmem.jpg"
             alt="Picture of Christ Church - Click for full size picture"
 			onclick="location.href='images/site/churchfrontwarmem.jpg'"

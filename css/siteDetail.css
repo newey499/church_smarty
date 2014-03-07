@@ -95,6 +95,7 @@ img.churchtopleft
 /* Used for church image at top of center column */
 img.churchcenterimg
 {/* scalable em size class 468px/60px banners */
+	float: right;
 	margin-top:0em;
 	width: 16em;
   height: 10em;
