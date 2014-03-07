@@ -38,8 +38,8 @@ class StMp3
 	const DAYS_OLD = 7;
 	
 	const QRY_COLS = "id, filename, dateperformed, 
-		            DATE_FORMAT(dateperformed, '%b %D %Y') AS datedisplay,
-								DATEDIFF(CURRENT_DATE(), lastupdated) AS days_old,
+		            DATE_FORMAT(dateperformed, '%b %d %Y') AS datedisplay,
+								DATEDIFF(CURRENT_DATE(), dateperformed) AS days_old,
 								series, biblebook, bibleref, title, preacher, description,
 								groupno, itemno";
 	
@@ -123,7 +123,7 @@ class StMp3
 		$qry = " SELECT	" . StMp3::QRY_COLS . 
 					 " FROM sermonstalks " . 
 					 " WHERE DATEDIFF(CURRENT_DATE(), lastupdated) <= " . $this->daysOld .
-					 " ORDER BY lastupdated DESC";  	
+					 " ORDER BY dateperformed DESC";  	
 		
 		$res = $oMysql->query($qry);
 		

@@ -24,42 +24,41 @@ To play the MP3's in a browser click on the link.
 To download the MP3's right click on the link and use the "Save link as" option.	
 </p>
 
-<br>
+<table style="width: 100%;">
 
-<h4>Recent</h4>
+	<tr>
+		<td>
+			<h2>Recent</h2>
+		</td>
+	</tr>	
 
-{get_sermons_talks fetch="RECENT" days=#daysToBeConsideredNew# out="oSermonsTalks"}
+	{get_sermons_talks fetch="RECENT" days=#daysToBeConsideredNew# out="oSermonsTalks"}	
 
-<table>
-{foreach $oSermonsTalks->aStMp3Items as $oStMp3Item}
+	{foreach $oSermonsTalks->aStMp3Items as $oStMp3Item}
+
+		{include 'common/mp3TalksItem.tpl'  aRec=$oStMp3Item->aRec}	
+
+	{/foreach}	
+
+	{get_sermons_talks fetch="ALL" out="oSermonsTalks"}
+
+	{$groupno=''}
+
+	{foreach $oSermonsTalks->aStMp3Items as $oStMp3Item}
+
+		{if $groupno <> $oStMp3Item->aRec.groupno}
+			{$groupno=$oStMp3Item->aRec.groupno}
+			<tr>
+				<td>
+					<h2>{$oStMp3Item->aRec.series}</h2>
+				</td>
+			</tr>
+		{/if}
+
+		{include 'common/mp3TalksItem.tpl'  aRec=$oStMp3Item->aRec}	
+
+	{/foreach}	
 	
-	{include 'common/mp3TalksItem.tpl'  aRec=$oStMp3Item->aRec}	
-
-{/foreach}	
-</table>
-
-<br>
-
-{get_sermons_talks fetch="ALL" out="oSermonsTalks"}
-
-<table>
-
-{$groupno=''}
-
-{foreach $oSermonsTalks->aStMp3Items as $oStMp3Item}
-	
-	{if $groupno <> $oStMp3Item->aRec.groupno}
-		{$groupno=$oStMp3Item->aRec.groupno}
-		<tr>
-			<td>
-				<h4>{$oStMp3Item->aRec.series}</h4>
-			</td>
-		</tr>
-	{/if}
-	
-	{include 'common/mp3TalksItem.tpl'  aRec=$oStMp3Item->aRec}	
-
-{/foreach}	
 </table>
 
 
