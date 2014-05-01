@@ -10,19 +10,6 @@ filename: home.tpl
 
 <h2>{$pageTitle}</h2>
 
-<h4>
-Ten years on the website celebrates a decade on line. Thanks to everyone 
-involved.
-
-<p>
-Particular thanks to our Vicar, Simon	who took a far sighted decision years ago,
-Doug who has kept us financed and Keith who has provided the Church with an
-outstanding IT infrastructure,
-	
-</p>
-
-</h4>
-
 
 <div id="missionstatement" class="tip" style="color:blue; width:25em; padding-left:1em; font-size: 1.0em;">
 

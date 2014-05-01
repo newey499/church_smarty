@@ -103,6 +103,12 @@ filename: whatsOnCalendar.tpl
 					{$oCalendarDay->date_unix|date_format:"%d/%m/%Y"}
 					</b>
 					<hr>
+					{if ($smarty.now|date_format:'%Y-%m-%d') == 
+								$oCalendarDay->date_unix|date_format:'%Y-%m-%d'}
+								<b>
+								<span style="color:red;">Today</span>
+								</b>
+					{/if}
 				</div>
 				<br>
 				{foreach $oCalendarDay->aEvents as $aEvent}

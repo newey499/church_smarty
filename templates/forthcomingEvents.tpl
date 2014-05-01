@@ -9,11 +9,6 @@ filename: forthcomingEvents.tpl
 
 <h2>{$pageTitle}</h2>
 
-
-<h4>
-Ten years on the website celebrates a decade on line.
-</h4>
-
 <p>
 
 <b>
